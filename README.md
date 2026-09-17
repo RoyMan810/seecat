@@ -31,8 +31,8 @@ Takes the reference's rhythm in blocks 1–3, then goes its own way:
 2. **Nav** — hex mark + letterspaced `SEECAT` wordmark, section links, dark `Chart` pill
    and white `Buy $SEECAT` pill
 3. **Hero** — meta row, `$SEECAT` display wordmark, "The cat that rides in your Seeker.",
-   mascot paragraph, CA field with COPY, two CTAs, three status pills; mascot at right
-   inside a double hexagon frame with a single green glow
+   mascot paragraph, CA field with COPY, two CTAs, three status pills; mascot at right,
+   centred in two sunset blooms
 4. **What you get** — three cards in the Reviewer's Guide pattern: rewards in $SCR,
    your keys stay yours, built on Solana
 5. **How it works** — 01 Buy / 02 Hold / 03 Collect, on accent-to-grey rules
@@ -44,7 +44,7 @@ Takes the reference's rhythm in blocks 1–3, then goes its own way:
 
 Measured off the reference screenshot. The ground is **not** pure black, and there is no
 flat accent colour anywhere on solanamobile.com — colour arrives as an ambient bloom
-behind the subject, as a band above the footer, and clipped into single glyphs.
+behind the subject and clipped into single glyphs.
 
 | Token | Value | Use |
 | --- | --- | --- |
@@ -53,7 +53,6 @@ behind the subject, as a band above the footer, and clipped into single glyphs.
 | `pill` | `#17171A` | Secondary pill |
 | `border` | `#26262B` | Pill and field borders |
 | `hairline` | `#1C1C20` | Section rules, grid cells, numbered-cell boxes |
-| `grid` | `#16161A` | Vertical column rules in the hero |
 | `body` | `#9B9BA3` | Body copy (6.5:1 on `page`) |
 | `label` | `#8E8E96` | Tiny uppercase labels (6.2:1) |
 | `legal` | `#6E6E76` | Disclaimer |

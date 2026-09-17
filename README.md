@@ -69,8 +69,9 @@ centred behind the mascot (warm, with violet riding above it), and clipped into 
 `$SCAT`, the word "Seeker" and `$SOL`. Step accents on the how-it-works rules take single
 stops from it.
 
-The full-bleed band above the footer was cut — it read as one flourish too many against
-an otherwise restrained page.
+Two borrowings were cut on review: the full-bleed band above the footer, and the hairline
+vertical column rules in the hero. Both work on the reference because dense product
+content sits on that grid; over an open hero they read as stray lines.
 
 ## Type
 
@@ -89,8 +90,8 @@ Radii: 999px everywhere (pills, field, COPY), 8–10px on swatches. Touch target
 
 - White pill primary CTA with a dark circular arrow badge set inside its right end
 - Dark pill secondary with a hairline border
-- Hairline vertical column rules running the full height of the hero
-- Numbered grid cells: a small boxed `01` in the cell's top-left corner
+- Numbered grid cells: a small boxed `01` in the cell's top-left corner, on a hairline
+  column rule between cells
 - Caption pattern **`Bold lead.`** then grey continuation — the same construction the
   Seeker Reviewer's Guide uses throughout
 - Footer: large grey nav words beside tiny uppercase link columns under `↳` headings

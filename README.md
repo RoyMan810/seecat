@@ -22,7 +22,7 @@ laid out by `design/canvas.json`.
 
 ## Page blocks
 
-Mirrors the reference one-for-one:
+Takes the reference's rhythm in blocks 1–3, then goes its own way:
 
 1. **Marquee ticker** — mono uppercase claims separated by green diamonds
 2. **Nav** — hex `S` mark + `SCAT` wordmark, section links, outlined BUY button

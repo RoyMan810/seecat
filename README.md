@@ -1,58 +1,116 @@
-# SCAT — site design
+# SEECAT — site design
 
-Website design for **SCAT** ($SCAT), a Solana cat-mascot token whose holders are paid
-rewards in $SOL.
+Website design for **SEECAT** ($SEECAT), a Solana cat-mascot token whose holders are paid
+rewards in $SCR.
 
-- **Palette reference:** solanamobile.com / Solana brand
-- **Content reference:** raycatsolana.com (structure, sections and voice, adapted for SCAT)
+- **Palette:** sampled pixel-by-pixel from `design/solanamobile.png`, not guessed
+- **Voice and content pattern:** Seeker Reviewer's Guide — a feature name, a one-line
+  promise, then bold-lead claims ("Paid to your wallet. Real $SCR — not points.")
+- **Block rhythm:** raycatsolana.com, loosely — ticker, nav, hero with a CA field and
+  status pills, then our own sections rather than a copy of theirs
 
-The design lives as a set of artboards in `design/`, authored in the `.dc.html` artboard
-format and laid out by `design/canvas.json`.
+The design lives as artboards in `design/`, authored in the `.dc.html` artboard format and
+laid out by `design/canvas.json`.
 
 ## Artboards
 
-| File | Frame | Section |
+| File | Frame | Contents |
 | --- | --- | --- |
-| `Main.dc.html` | 1440 × 980 | Nav, hero, mascot plate, stat strip |
-| `Rewards.dc.html` | 1440 × 980 | Rewards value props + 3-step "how it works" |
-| `Story.dc.html` | 1440 × 980 | The cat's story, token spec, distribution |
-| `Buy.dc.html` | 1440 × 980 | How to buy (4 steps), FAQ, footer |
-| `Mobile.dc.html` | 390 × 844 | Hero at phone width |
-| `Foundations.dc.html` | 1100 × 680 | Palette, type scale, controls |
+| `Main.dc.html` | 1440 × 2440 | Whole desktop page |
+| `Mobile.dc.html` | 390 × 3330 | Same page stacked for phone |
+| `Foundations.dc.html` | 1180 × 720 | Palette, type scale, controls |
+
+Source files: `SCAT.png` (mascot, 1024², transparent) and `solanamobile.png`
+(full-page reference screenshot, 1905 × 9535).
+
+## Page blocks
+
+Takes the reference's rhythm in blocks 1–3, then goes its own way:
+
+1. **Marquee ticker** — uppercase claims separated by dim diamonds, `$SEECAT` in peach
+2. **Nav** — hex mark + letterspaced `SEECAT` wordmark, section links, dark `Chart` pill
+   and white `Buy $SEECAT` pill
+3. **Hero** — meta row, `$SEECAT` display wordmark, "The cat that rides in your Seeker.",
+   mascot paragraph, CA field with COPY, two CTAs, three status pills; mascot at right,
+   centred in two sunset blooms
+4. **What you get** — three cards in the Reviewer's Guide pattern: rewards in $SCR,
+   your keys stay yours, built on Solana
+5. **How it works** — 01 Buy / 02 Hold / 03 Collect, on accent-to-grey rules
+6. **Stat band** — rewards paid, holders, supply, reward token
+7. **Footer** — three large nav words, the mark with the X handle, then a rule and the
+   risk and non-affiliation disclaimer
 
 ## Color tokens
 
-Dark, near-black ground with the Solana purple→green gradient used as a signature accent
-rather than a background wash.
+Measured off the reference screenshot. The ground is **not** pure black, and there is no
+flat accent colour anywhere on solanamobile.com — colour arrives as an ambient bloom
+behind the subject and clipped into single glyphs.
 
 | Token | Value | Use |
 | --- | --- | --- |
-| `page` | `#08080C` | Page background |
-| `raised` | `#0C0C14` | Raised panels, contract chip |
-| `card` | `#0E0E16` | Cards |
-| `chip` | `#141428` | Icon tiles, logo tile (purple-tinted dark) |
-| `hairline` | `#1C1C26` | Section dividers, card borders |
-| `border` | `#2A2A3C` | Control borders |
-| `text` | `#F5F5F7` | Primary text |
-| `text-dim` | `#9A9AAB` | Secondary text (7:1 on `page`) |
-| `accent` | `#14F195` | Primary accent, CTAs (Solana green) |
-| `accent-hi` | `#00FFA3` | Hover (Solana surge green) |
-| `brand-2` | `#9945FF` | Solana purple — fills, borders, glows |
-| `brand-2-text` | `#B57CFF` | Purple as text (lightened to clear 4.5:1) |
+| `page` | `#0C0C0E` | Page background (46% of the reference's pixels) |
+| `field` | `#131316` | Contract field |
+| `pill` | `#17171A` | Secondary pill |
+| `border` | `#26262B` | Pill and field borders |
+| `hairline` | `#1C1C20` | Section rules, grid cells, numbered-cell boxes |
+| `body` | `#9B9BA3` | Body copy (6.5:1 on `page`) |
+| `label` | `#8E8E96` | Tiny uppercase labels (6.2:1) |
+| `legal` | `#6E6E76` | Disclaimer |
+| `text` | `#FFFFFF` | Headings, bold leads, primary pill label |
 
-Signature gradient: `linear-gradient(94deg, #9945FF, #14F195)` — used for one word per
-heading and for the ring around the mascot plate only.
+### Sunset gradient
+
+Sampled down the footer band of the reference at `x=120`, `y=8700…8970`:
+
+`#7E4593` → `#B15292` → `#E8636C` → `#F6913F` → `#F9C18D` → `#FDF3E7`
+
+violet → magenta → coral → orange → peach → cream. Used two ways only: as radial blooms
+centred behind the mascot (warm, with violet riding above it), and clipped into the `$` of
+`$SEECAT`, the word "Seeker" and `$SCR`. Step accents on the how-it-works rules take single
+stops from it.
+
+Three borrowings were cut on review: the full-bleed band above the footer, the hairline
+vertical column rules in the hero, and the footer's `↳` link columns. Each works on the
+reference because dense product content fills it; at this page's scale they read as
+structure with nothing to hold.
 
 ## Type
 
-- **Display:** Space Grotesk 700, letter-spacing `-0.045em` — 86 / 56 / 40 / 25px
-- **Body:** Manrope 400–700 — 19 / 17 / 15px at 1.6
-- **Labels & numbers:** JetBrains Mono 500, letter-spacing `0.18em` — 12px uppercase
+One family, as the reference does:
 
-Radii: 10 / 12 / 20 / 44px. Touch targets ≥ 44px.
+- **Manrope 800** — `$SEECAT` at 130px, `-0.055em` (mobile 66px)
+- **Manrope 600** — subhead 38px; footer nav words 34px
+- **Manrope 700** — section headings 50 / 44 / 22px; bold caption leads
+- **Manrope 400** — body 16 / 14px at 1.65
+- **Manrope 500** — tiny uppercase labels, 10–11px at `0.14–0.18em`
+- **JetBrains Mono** — the contract address string only, where a hash needs a mono face
 
-## Placeholders
+Radii: 999px everywhere (pills, field, COPY), 8–10px on swatches. Touch targets ≥ 44px.
 
-Facts that belong to the real launch are left as bracketed placeholders, not invented:
-contract address, total supply, reward share, tax, payout schedule, liquidity and mint
-authority status, rewards-paid and holder counts.
+## Craft borrowed from the reference
+
+- White pill primary CTA with a dark circular arrow badge set inside its right end
+- Dark pill secondary with a hairline border
+- Numbered grid cells: a small boxed `01` in the cell's top-left corner, on a hairline
+  column rule between cells
+- Caption pattern **`Bold lead.`** then grey continuation — the same construction the
+  Seeker Reviewer's Guide uses throughout
+- Footer: large grey nav words as the only navigation
+
+## Open items
+
+- **The Seeker Reviewer's Guide carries no colour or type spec.** It supplied the voice and
+  the caption pattern; every colour above comes from the screenshot instead.
+- The reference's display face is a wide geometric grotesque that is not a Google font.
+  Manrope 800 at tight tracking is the closest freely available stand-in; swap in the real
+  face if the press kit ships one.
+- Launch facts are bracketed placeholders: contract address, supply, holders, rewards
+  paid, socials handle.
+- Claims are deliberately narrow: no Seeker Season, dApp Store or Seed Vault *integration*
+  is asserted anywhere — only that a Seeker owner's keys live in their own Seed Vault.
+
+## Naming
+
+The token is **$SEECAT**, rewards are paid in **$SCR**. Note that the Seeker Reviewer's
+Guide names **SKR** as the native asset of the Solana Mobile economy — a different ticker,
+one letter apart. `$SCR` here is used exactly as specified and is not SKR.

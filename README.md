@@ -30,11 +30,26 @@ works from a subdirectory too.
 
 | | |
 | --- | --- |
-| Marquee | CSS animation, duplicated track for a seamless loop, stops under `prefers-reduced-motion` |
 | Mobile nav | `aria-expanded` toggle, closes on link pick and on Escape, restored on resize |
 | Copy button | Clipboard API with a selection fallback for non-secure origins, `COPIED` for 1.8s |
 | Focus | `:focus-visible` rings on every link, button and input |
 | Images | `width`/`height` set to reserve space; the coin is `aria-hidden`, the mascot carries the alt text |
+
+### SEO and link previews
+
+`index.html`'s head carries the title, description, canonical, robots, Open Graph, X card
+and a `WebSite` JSON-LD block.
+
+**Two things to change before launch:**
+
+1. **`canonical` and `og:url` point at `https://royman810.github.io/seecat/`** — the GitHub
+   Pages default, since the repo has no `CNAME`. Point them at the real domain if one is
+   added, or link previews will advertise the wrong URL.
+2. **The favicon and preview banner are hosted on i.ibb.co**, not in the repo:
+   `SEECAT.png` and `SEECAT-link.jpg`. That works, but an image host going down takes the
+   favicon and every link preview with it — worth vendoring both into `assets/img/`.
+
+`og:image` must stay an **absolute** URL; scrapers do not resolve relative paths.
 
 Verified in Chromium at 390, 768, 900, 1440 and 1920px: no horizontal overflow at any
 width, and no console errors.
@@ -70,20 +85,21 @@ and `solanamobile.png` (full-page reference screenshot, 1905 × 9535).
 
 ## Page blocks
 
-Takes the reference's rhythm in blocks 1–3, then goes its own way:
-
-1. **Marquee ticker** — uppercase claims separated by dim diamonds, `$SEECAT` in peach
-2. **Nav** — hex mark + letterspaced `SEECAT` wordmark, section links, dark `Chart` pill
-   and white `Buy $SEECAT` pill
-3. **Hero** — meta row, `$SEECAT` display wordmark, "The cat that rides in your Seeker.",
+1. **Nav** — hex mark + letterspaced `SEECAT` wordmark, section links, `Community`
+   pointing at X, and the white `Buy $SEECAT` pill
+2. **Hero** — meta row, `$SEECAT` display wordmark, "The cat that lives in your Seeker.",
    mascot paragraph, CA field with COPY, two CTAs, three status pills; mascot at right,
-   standing against the $SKR coin and centred in two sunset blooms
-4. **How it works** — 01 Buy / 02 Hold / 03 Collect, on accent-to-grey rules
-5. **What holding gets you** — three cards in the Reviewer's Guide pattern: rewards in
-   $SKR, your keys stay yours, built on Solana
-6. **Stat band** — rewards paid, holders, supply, reward token
-7. **Footer** — three large nav words, the mark with the X handle, then a rule and the
-   risk and non-affiliation disclaimer
+   standing on the $SKR coin and centred in two sunset blooms
+3. **How it works** — 01 Buy / 02 Hold / 03 Collect, on accent-to-grey rules
+4. **What holding gets you** — two cards in the Reviewer's Guide pattern: rewards in $SKR,
+   built on Solana
+5. **Stat band** — rewards paid, holders, supply, reward token
+6. **Footer** — large nav words, the mark with the `@SeeCat_sol` handle, then a rule and
+   the risk and non-affiliation disclaimer
+
+The artboards in `design/` still show the earlier arrangement: a marquee ticker above the
+nav, a `Chart` pill beside `Buy`, a third card ("Your keys stay yours") and numbered `01`
+badges on the cards. All four were dropped from the build afterwards.
 
 ## Color tokens
 
@@ -97,7 +113,7 @@ behind the subject and clipped into single glyphs.
 | `field` | `#131316` | Contract field |
 | `pill` | `#17171A` | Secondary pill |
 | `border` | `#26262B` | Pill and field borders |
-| `hairline` | `#1C1C20` | Section rules, grid cells, numbered-cell boxes |
+| `hairline` | `#1C1C20` | Section rules, grid cell dividers |
 | `body` | `#9B9BA3` | Body copy (6.5:1 on `page`) |
 | `label` | `#8E8E96` | Tiny uppercase labels (6.2:1) |
 | `legal` | `#6E6E76` | Disclaimer |
@@ -136,8 +152,6 @@ Radii: 999px everywhere (pills, field, COPY), 8–10px on swatches. Touch target
 
 - White pill primary CTA with a dark circular arrow badge set inside its right end
 - Dark pill secondary with a hairline border
-- Numbered grid cells: a small boxed `01` in the cell's top-left corner, on a hairline
-  column rule between cells
 - Caption pattern **`Bold lead.`** then grey continuation — the same construction the
   Seeker Reviewer's Guide uses throughout
 - Footer: large grey nav words as the only navigation

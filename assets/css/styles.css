@@ -383,7 +383,7 @@ a:hover { color: var(--s5); }
   content: "";
   width: 7px; height: 7px;
   border-radius: 50%;
-  background: var(--accent);
+  background: #3ff646;
   box-shadow: 0 0 12px 2px rgba(246,145,63,0.7);
 }
 .meta__sep { font-size: 7px; color: var(--diamond); }

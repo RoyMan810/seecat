@@ -15,16 +15,38 @@ There are two things here:
 - **`design/`** — the artboards it came from, in the `.dc.html` format, laid out by
   `design/canvas.json`.
 
-## Running the site
+## Deploying to seecatsol.com
 
-No build step, no dependencies. Open `index.html`, or serve the folder:
+The site is static — there is nothing to build and no runtime. Deploying is copying two
+things into the web root:
+
+```sh
+rsync -av --delete index.html assets/ user@seecatsol.com:/var/www/seecatsol.com/
+```
+
+`design/`, `README.md` and the repo's other files are not part of the site and do not need
+to be uploaded.
+
+**Serve it over HTTPS.** Not just for the padlock: the COPY button on the contract field
+uses the Clipboard API, which browsers only expose in a secure context. Over plain HTTP it
+falls back to selecting the text instead of copying it. A Let's Encrypt certificate for the
+apex plus `www` is enough.
+
+Two things worth setting on the server:
+
+- **Redirect `www` to the apex** (or the reverse), so one address is canonical. The page's
+  `canonical` and `og:url` both say `https://seecatsol.com/`, so the apex is the one to
+  land on.
+- **Cache headers.** The filenames are not content-hashed, so a long `max-age` on
+  `assets/img/*` is safe while `index.html`, the stylesheet and the script want something
+  short — otherwise an edit will not reach people who have already visited.
+
+Asset paths are all relative, so the site also runs from a subdirectory or a plain
+`file://` open, which is handy for checking a build locally:
 
 ```sh
 python3 -m http.server 8000     # then http://localhost:8000
 ```
-
-To publish: Settings -> Pages -> deploy from `main` / root. Every path is relative, so it
-works from a subdirectory too.
 
 ### What is wired up
 
@@ -40,14 +62,12 @@ works from a subdirectory too.
 `index.html`'s head carries the title, description, canonical, robots, Open Graph, X card
 and a `WebSite` JSON-LD block.
 
-**Two things to change before launch:**
+`canonical`, `og:url` and the JSON-LD `url` all point at **https://seecatsol.com/**, the
+apex domain in `CNAME`. Keep the three in step if the domain ever changes.
 
-1. **`canonical` and `og:url` point at `https://royman810.github.io/seecat/`** — the GitHub
-   Pages default, since the repo has no `CNAME`. Point them at the real domain if one is
-   added, or link previews will advertise the wrong URL.
-2. **The favicon and preview banner are hosted on i.ibb.co**, not in the repo:
-   `SEECAT.png` and `SEECAT-link.jpg`. That works, but an image host going down takes the
-   favicon and every link preview with it — worth vendoring both into `assets/img/`.
+**One thing left:** the favicon and preview banner are hosted on i.ibb.co, not in the repo
+(`SEECAT.png` and `SEECAT-link.jpg`). That works, but an image host going down takes the
+favicon and every link preview with it — worth vendoring both into `assets/img/`.
 
 `og:image` must stay an **absolute** URL; scrapers do not resolve relative paths.
 

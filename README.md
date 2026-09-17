@@ -1,11 +1,11 @@
 # SEECAT — site design
 
 Website design for **SEECAT** ($SEECAT), a Solana cat-mascot token whose holders are paid
-rewards in $SCR.
+rewards in $SKR.
 
 - **Palette:** sampled pixel-by-pixel from `design/solanamobile.png`, not guessed
 - **Voice and content pattern:** Seeker Reviewer's Guide — a feature name, a one-line
-  promise, then bold-lead claims ("Paid to your wallet. Real $SCR — not points.")
+  promise, then bold-lead claims ("Paid to your wallet. Real $SKR — not points.")
 - **Block rhythm:** raycatsolana.com, loosely — ticker, nav, hero with a CA field and
   status pills, then our own sections rather than a copy of theirs
 
@@ -17,11 +17,11 @@ laid out by `design/canvas.json`.
 | File | Frame | Contents |
 | --- | --- | --- |
 | `Main.dc.html` | 1440 × 2440 | Whole desktop page |
-| `Mobile.dc.html` | 390 × 3330 | Same page stacked for phone |
+| `Mobile.dc.html` | 390 × 3360 | Same page stacked for phone |
 | `Foundations.dc.html` | 1180 × 720 | Palette, type scale, controls |
 
-Source files: `SCAT.png` (mascot, 1024², transparent) and `solanamobile.png`
-(full-page reference screenshot, 1905 × 9535).
+Source files: `SCAT.png` (mascot, 1024², transparent), `Token_Seeker.png` (the $SKR coin,
+320², transparent) and `solanamobile.png` (full-page reference screenshot, 1905 × 9535).
 
 ## Page blocks
 
@@ -32,8 +32,8 @@ Takes the reference's rhythm in blocks 1–3, then goes its own way:
    and white `Buy $SEECAT` pill
 3. **Hero** — meta row, `$SEECAT` display wordmark, "The cat that rides in your Seeker.",
    mascot paragraph, CA field with COPY, two CTAs, three status pills; mascot at right,
-   centred in two sunset blooms
-4. **What you get** — three cards in the Reviewer's Guide pattern: rewards in $SCR,
+   standing against the $SKR coin and centred in two sunset blooms
+4. **What you get** — three cards in the Reviewer's Guide pattern: rewards in $SKR,
    your keys stay yours, built on Solana
 5. **How it works** — 01 Buy / 02 Hold / 03 Collect, on accent-to-grey rules
 6. **Stat band** — rewards paid, holders, supply, reward token
@@ -66,7 +66,7 @@ Sampled down the footer band of the reference at `x=120`, `y=8700…8970`:
 
 violet → magenta → coral → orange → peach → cream. Used two ways only: as radial blooms
 centred behind the mascot (warm, with violet riding above it), and clipped into the `$` of
-`$SEECAT`, the word "Seeker" and `$SCR`. Step accents on the how-it-works rules take single
+`$SEECAT`, the word "Seeker" and `$SKR`. Step accents on the how-it-works rules take single
 stops from it.
 
 Three borrowings were cut on review: the full-bleed band above the footer, the hairline
@@ -101,6 +101,8 @@ Radii: 999px everywhere (pills, field, COPY), 8–10px on swatches. Touch target
 
 - **The Seeker Reviewer's Guide carries no colour or type spec.** It supplied the voice and
   the caption pattern; every colour above comes from the screenshot instead.
+- `Token_Seeker.png` is only 320px, so the coin is upscaled to render at 560px behind the
+  mascot and its rim is a little soft. A larger original would fix that.
 - The reference's display face is a wide geometric grotesque that is not a Google font.
   Manrope 800 at tight tracking is the closest freely available stand-in; swap in the real
   face if the press kit ships one.
@@ -111,8 +113,10 @@ Radii: 999px everywhere (pills, field, COPY), 8–10px on swatches. Touch target
 
 ## Naming
 
-The token is **$SEECAT** and rewards are paid in **$SCR**. Both confirmed by the owner.
+The token is **$SEECAT** and rewards are paid in **$SKR** — the native asset of the Solana
+Mobile economy, as the Seeker Reviewer's Guide names it. An earlier pass read `$SCR`; that
+was a typo and is corrected throughout.
 
-`$SCR` is deliberately not **SKR**, which the Seeker Reviewer's Guide names as the native
-asset of the Solana Mobile economy. The two tickers are one letter apart, so keep them
-distinct in any future copy, and never imply $SCR is the Solana Mobile asset.
+One thing to square before launch: the Reviewer's Guide states plainly that **"SKR Token is
+not live yet."** A live page saying rewards *are* paid in $SKR depends on that changing, and
+$SKR is Solana Mobile's asset rather than this project's.

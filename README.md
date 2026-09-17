@@ -3,7 +3,7 @@
 Website design for **SCAT** ($SCAT), a Solana cat-mascot token whose holders are paid
 rewards in $SOL.
 
-- **Design language:** Solana Mobile / Seeker — true black, monochrome, one green accent
+- **Palette:** sampled pixel-by-pixel from `design/solanamobile.png`, not guessed
 - **Voice and content pattern:** Seeker Reviewer's Guide — a feature name, a one-line
   promise, then bold-lead claims ("Paid to your wallet. Real $SOL — not points.")
 - **Block rhythm:** raycatsolana.com, loosely — ticker, nav, hero with a CA field and
@@ -16,9 +16,12 @@ laid out by `design/canvas.json`.
 
 | File | Frame | Contents |
 | --- | --- | --- |
-| `Main.dc.html` | 1440 × 2274 | Whole desktop page |
-| `Mobile.dc.html` | 390 × 3280 | Same page stacked for phone |
-| `Foundations.dc.html` | 1100 × 620 | Palette, type scale, controls, hex mark |
+| `Main.dc.html` | 1440 × 2584 | Whole desktop page |
+| `Mobile.dc.html` | 390 × 3440 | Same page stacked for phone |
+| `Foundations.dc.html` | 1180 × 720 | Palette, type scale, controls |
+
+Source files: `SCAT.png` (mascot, 1024², transparent) and `solanamobile.png`
+(full-page reference screenshot, 1905 × 9535).
 
 ## Page blocks
 
@@ -37,45 +40,65 @@ Takes the reference's rhythm in blocks 1–3, then goes its own way:
 
 ## Color tokens
 
-True black ground, monochrome greys, a single green accent. No purple and no gradient
-headings: the accent reads because nothing else competes with it.
+Measured off the reference screenshot. The ground is **not** pure black, and there is no
+flat accent colour anywhere on solanamobile.com — colour arrives as an ambient bloom
+behind the subject, as a band above the footer, and clipped into single glyphs.
 
 | Token | Value | Use |
 | --- | --- | --- |
-| `page` | `#000000` | Page background |
-| `ticker` | `#050506` | Ticker strip, footer panels |
-| `field` | `#0D0D10` | Inputs, secondary button |
-| `chip` | `#15151A` | COPY button |
-| `hairline` | `#1A1A1E` | Section dividers, pill borders |
-| `border` | `#2A2A30` | Control borders |
-| `legal` | `#6E6E78` | Disclaimer text |
-| `dim` | `#8E8E96` | Mono labels, secondary text (6.4:1 on `page`) |
-| `soft` | `#C9C9D1` | Pill labels |
-| `text` | `#FFFFFF` | Primary text |
-| `accent` | `#14F195` | `$` glyph, `$SOL`, primary CTA, live dot |
-| `accent-hi` | `#00FFA3` | Hover |
+| `page` | `#0C0C0E` | Page background (46% of the reference's pixels) |
+| `field` | `#131316` | Contract field |
+| `pill` | `#17171A` | Secondary pill |
+| `border` | `#26262B` | Pill and field borders |
+| `hairline` | `#1C1C20` | Section rules, grid cells, numbered-cell boxes |
+| `grid` | `#16161A` | Vertical column rules in the hero |
+| `body` | `#9B9BA3` | Body copy (6.5:1 on `page`) |
+| `label` | `#8E8E96` | Tiny uppercase labels (6.2:1) |
+| `legal` | `#6E6E76` | Disclaimer |
+| `text` | `#FFFFFF` | Headings, bold leads, primary pill label |
 
-Accent glow: `radial-gradient(circle, rgba(20,241,149,0.16), transparent 68%)` behind the
-mascot, once per page.
+### Sunset gradient
+
+Sampled down the footer band of the reference at `x=120`, `y=8700…8970`:
+
+`#7E4593` → `#B15292` → `#E8636C` → `#F6913F` → `#F9C18D` → `#FDF3E7`
+
+violet → magenta → coral → orange → peach → cream. Used three ways only: the band above
+the footer, two radial blooms behind the mascot (warm low-left, violet upper-right), and
+clipped into the `$` of `$SCAT`, the word "Seeker" and `$SOL`. Step accents on the
+how-it-works rules take single stops from it.
 
 ## Type
 
-- **Display:** Space Grotesk 700, `-0.055em` — `$SCAT` at 122px; subhead 500 at 37px
-- **Body:** Manrope 400–700 — 16px / 1.7; disclaimer 13px
-- **Labels, ticker, pills, CA:** JetBrains Mono 500, `0.16–0.20em`, 10–12px uppercase
+One family, as the reference does:
 
-Radii: 10px controls, 999px pills. Touch targets ≥ 44px.
+- **Manrope 800** — `$SCAT` at 136px, `-0.055em`
+- **Manrope 600** — subhead 38px; footer nav words 34px
+- **Manrope 700** — section headings 50 / 44 / 22px; bold caption leads
+- **Manrope 400** — body 16 / 14px at 1.65
+- **Manrope 500** — tiny uppercase labels, 10–11px at `0.14–0.18em`
+- **JetBrains Mono** — the contract address string only, where a hash needs a mono face
+
+Radii: 999px everywhere (pills, field, COPY), 8–10px on swatches. Touch targets ≥ 44px.
+
+## Craft borrowed from the reference
+
+- White pill primary CTA with a dark circular arrow badge set inside its right end
+- Dark pill secondary with a hairline border
+- Hairline vertical column rules running the full height of the hero
+- Numbered grid cells: a small boxed `01` in the cell's top-left corner
+- Caption pattern **`Bold lead.`** then grey continuation — the same construction the
+  Seeker Reviewer's Guide uses throughout
+- Footer: large grey nav words beside tiny uppercase link columns under `↳` headings,
+  with the sunset band bleeding in above
 
 ## Open items
 
-- **Mascot art** is a labelled placeholder (392 × 430, transparent PNG) — the real file has
-  not been supplied in a form the build can read.
-- **Palette is not measured from the press kit.** The supplied Drive file is the Seeker
-  *Reviewer's Guide* — mission, features (Seed Vault, Seeker ID, Genesis Token, SKR, dApp
-  Store, TEEPIN), hardware and quick-start. It carries no hex values or typefaces. Its
-  content and voice are reflected in the copy; the colours above remain the Solana Mobile
-  direction plus the verified Solana brand green. A brand/style-guide file with colour and
-  type specs would let these be exact.
+- **The Seeker Reviewer's Guide carries no colour or type spec.** It supplied the voice and
+  the caption pattern; every colour above comes from the screenshot instead.
+- The reference's display face is a wide geometric grotesque that is not a Google font.
+  Manrope 800 at tight tracking is the closest freely available stand-in; swap in the real
+  face if the press kit ships one.
 - Launch facts are bracketed placeholders: contract address, supply, holders, rewards
   paid, socials handle.
 - Claims are deliberately narrow: no Seeker Season, dApp Store or Seed Vault *integration*

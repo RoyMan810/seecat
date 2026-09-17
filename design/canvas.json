@@ -10,9 +10,9 @@
   "pages": [],
   "designSystems": [],
   "boards": {
-    "Main.dc.html": { "x": 0, "y": 0, "w": 1440, "h": 2274, "title": "Desktop 1440 — full page" },
-    "Mobile.dc.html": { "x": 1520, "y": 0, "w": 390, "h": 3280, "title": "Mobile 390 — full page" },
-    "Foundations.dc.html": { "x": 1990, "y": 0, "w": 1100, "h": 620, "title": "Palette, type & controls" }
+    "Main.dc.html": { "x": 0, "y": 0, "w": 1440, "h": 2584, "title": "Desktop 1440 — full page" },
+    "Mobile.dc.html": { "x": 1520, "y": 0, "w": 390, "h": 3440, "title": "Mobile 390 — full page" },
+    "Foundations.dc.html": { "x": 1990, "y": 0, "w": 1180, "h": 720, "title": "Palette sampled from solanamobile.com" }
   },
   "order": [
     "Main.dc.html",
@@ -22,8 +22,8 @@
   "notes": {
     "n1": {
       "kind": "title1",
-      "maxW": 3090,
-      "text": "SCAT — Seeker direction, full page",
+      "maxW": 3170,
+      "text": "SCAT — Solana Mobile palette, real mascot",
       "x": 0,
       "y": -300
     }

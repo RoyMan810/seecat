@@ -111,6 +111,8 @@ Radii: 999px everywhere (pills, field, COPY), 8–10px on swatches. Touch target
 
 ## Naming
 
-The token is **$SEECAT**, rewards are paid in **$SCR**. Note that the Seeker Reviewer's
-Guide names **SKR** as the native asset of the Solana Mobile economy — a different ticker,
-one letter apart. `$SCR` here is used exactly as specified and is not SKR.
+The token is **$SEECAT** and rewards are paid in **$SCR**. Both confirmed by the owner.
+
+`$SCR` is deliberately not **SKR**, which the Seeker Reviewer's Guide names as the native
+asset of the Solana Mobile economy. The two tickers are one letter apart, so keep them
+distinct in any future copy, and never imply $SCR is the Solana Mobile asset.

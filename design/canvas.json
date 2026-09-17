@@ -10,23 +10,22 @@
   "pages": [],
   "designSystems": [],
   "boards": {
-    "Main.dc.html": { "x": 0, "y": 0, "w": 1440, "h": 980, "title": "01 — Hero" },
-    "Rewards.dc.html": { "x": 1520, "y": 0, "w": 1440, "h": 980, "title": "02 — Rewards & how it works" },
-    "Story.dc.html": { "x": 3040, "y": 0, "w": 1440, "h": 980, "title": "03 — The cat & the token" },
-    "Buy.dc.html": { "x": 4560, "y": 0, "w": 1440, "h": 980, "title": "04 — How to buy, FAQ & footer" },
-    "Mobile.dc.html": { "x": 0, "y": 1400, "w": 390, "h": 844, "title": "Hero — mobile 390" },
-    "Foundations.dc.html": { "x": 550, "y": 1400, "w": 1100, "h": 680, "title": "Palette, type & controls" }
+    "Main.dc.html": { "x": 0, "y": 0, "w": 1440, "h": 980, "title": "Desktop 1440 — full page" },
+    "Mobile.dc.html": { "x": 1520, "y": 0, "w": 390, "h": 1240, "title": "Mobile 390 — full page" },
+    "Foundations.dc.html": { "x": 1990, "y": 0, "w": 1100, "h": 620, "title": "Palette, type & controls" }
   },
   "order": [
     "Main.dc.html",
-    "Rewards.dc.html",
-    "Story.dc.html",
-    "Buy.dc.html",
     "Mobile.dc.html",
     "Foundations.dc.html"
   ],
   "notes": {
-    "n1": { "x": 0, "y": -300, "text": "SCAT — desktop site, 1440px", "kind": "title1", "maxW": 6000 },
-    "n2": { "x": 0, "y": 1100, "text": "Mobile & foundations", "kind": "title1", "maxW": 1650 }
+    "n1": {
+      "kind": "title1",
+      "maxW": 3090,
+      "text": "SCAT — one screen: ticker, nav, hero, footer",
+      "x": 0,
+      "y": -300
+    }
   }
 }

@@ -9,97 +9,123 @@
 <helmet>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap">
   <style>
-    body { margin: 0; background: #08080C; font-family: "Manrope", system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+    body { margin: 0; background: #000000; font-family: "Manrope", system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
     a { color: #14F195; text-decoration: none; }
-    a:hover { color: #00FFA3; }
+    a:hover { color: #FFFFFF; }
   </style>
 </helmet>
-<div style="width: 390px; height: 844px; box-sizing: border-box; background: #08080C; color: #F5F5F7; display: flex; flex-direction: column; overflow: hidden; position: relative;">
+<div style="width: 390px; height: 1240px; box-sizing: border-box; background: #000000; color: #FFFFFF; display: flex; flex-direction: column; overflow: hidden;">
 
-  <div style="position: absolute; top: -180px; left: 60px; width: 420px; height: 420px; border-radius: 50%; background: radial-gradient(circle, rgba(153,69,255,0.28) 0%, rgba(153,69,255,0) 70%);"></div>
+  <div style="flex-shrink: 0; height: 38px; box-sizing: border-box; border-bottom: 1px solid #1A1A1E; background: #050506; display: flex; align-items: center; gap: 18px; padding: 0 16px; overflow: hidden; white-space: nowrap;">
+    <span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 10px; font-weight: 500; letter-spacing: 0.18em; color: #8E8E96;">HOLD THE CAT</span>
+    <span style="color: {{accent}}; font-size: 8px;">◆</span>
+    <span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 10px; font-weight: 700; letter-spacing: 0.18em; color: {{accent}};">$SCAT</span>
+    <span style="color: {{accent}}; font-size: 8px;">◆</span>
+    <span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 10px; font-weight: 500; letter-spacing: 0.18em; color: #8E8E96;">REWARDS PAID IN $SOL</span>
+  </div>
 
-  <header style="flex-shrink: 0; height: 64px; box-sizing: border-box; padding: 0 20px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #1C1C26; position: relative;">
-    <a href="#top" style="display: flex; align-items: center; gap: 10px; color: #F5F5F7;">
-      <span style="width: 32px; height: 32px; border-radius: 10px; background: #141428; border: 1px solid #2A2A3C; display: flex; align-items: center; justify-content: center; color: {{accent}};">
-        <svg width="19" height="19" viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M26 44 L21 15 L48 31"></path>
-          <path d="M94 44 L99 15 L72 31"></path>
-          <path d="M26 46 C26 31 41 23 60 23 C79 23 94 31 94 46 C94 75 80 96 60 96 C40 96 26 75 26 46 Z"></path>
-          <circle cx="45" cy="55" r="5" fill="currentColor" stroke="none"></circle>
-          <circle cx="75" cy="55" r="5" fill="currentColor" stroke="none"></circle>
-        </svg>
-      </span>
-      <span style="font-family: 'Space Grotesk', sans-serif; font-size: 19px; font-weight: 700; letter-spacing: -0.03em;">SCAT</span>
-    </a>
-    <button type="button" aria-label="Open menu" style="width: 44px; height: 44px; border-radius: 12px; border: 1px solid #2A2A3C; background: #101018; color: #F5F5F7; display: flex; align-items: center; justify-content: center; cursor: pointer; padding: 0;">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true">
-        <path d="M4 8h16"></path><path d="M4 16h16"></path>
+  <header style="flex-shrink: 0; height: 62px; box-sizing: border-box; padding: 0 16px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #1A1A1E;">
+    <a href="#top" style="display: flex; align-items: center; gap: 11px; color: #FFFFFF;">
+      <svg width="34" height="34" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+        <path d="M20 2.5 L34.5 11 L34.5 29 L20 37.5 L5.5 29 L5.5 11 Z" stroke="#2A2A30" stroke-width="1.5" fill="#0D0D10"></path>
+        <text x="20" y="26" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="17" font-weight="700" fill="#14F195">S</text>
       </svg>
-    </button>
+      <span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 17px; font-weight: 700; letter-spacing: 0.14em;">SCAT</span>
+    </a>
+    <div style="display: flex; align-items: center; gap: 18px;">
+      <a href="#x" style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; font-weight: 500; letter-spacing: 0.16em; color: #8E8E96;">X</a>
+      <a href="#chart" style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; font-weight: 500; letter-spacing: 0.16em; color: #8E8E96;">CHART</a>
+    </div>
   </header>
 
-  <main style="flex-grow: 1; box-sizing: border-box; padding: 22px 20px; display: flex; flex-direction: column; gap: 18px; position: relative;">
+  <main style="flex-grow: 1; box-sizing: border-box; padding: 24px 16px; display: flex; flex-direction: column; gap: 16px;">
 
-    <div style="display: flex; align-items: center; gap: 9px; align-self: flex-start; padding: 8px 14px 8px 10px; border: 1px solid #2A2A3C; background: #101018; border-radius: 999px;">
-      <span style="width: 7px; height: 7px; border-radius: 50%; background: {{accent}}; box-shadow: 0 0 10px 2px rgba(20,241,149,0.7);"></span>
-      <span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 10px; font-weight: 500; letter-spacing: 0.14em; color: #D6D6E0;">REWARDS PAID IN $SOL</span>
+    <div style="display: flex; align-items: center; gap: 9px; flex-wrap: wrap;">
+      <span style="display: flex; align-items: center; gap: 7px;">
+        <span style="width: 6px; height: 6px; border-radius: 50%; background: {{accent}}; box-shadow: 0 0 9px 2px rgba(20,241,149,0.8);"></span>
+        <span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 10px; font-weight: 500; letter-spacing: 0.18em; color: #FFFFFF;">LIVE</span>
+      </span>
+      <span style="color: #2A2A30; font-size: 7px;">◆</span>
+      <span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 10px; font-weight: 500; letter-spacing: 0.18em; color: #8E8E96;">SOLANA</span>
+      <span style="color: #2A2A30; font-size: 7px;">◆</span>
+      <span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 10px; font-weight: 500; letter-spacing: 0.18em; color: #8E8E96;">SEEKER</span>
+      <span style="color: #2A2A30; font-size: 7px;">◆</span>
+      <span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 10px; font-weight: 500; letter-spacing: 0.18em; color: #8E8E96;">$SOL REWARDS</span>
     </div>
 
-    <h1 style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-size: 42px; line-height: 0.96; font-weight: 700; letter-spacing: -0.045em;">
-      <span style="display: block;">The cat that</span>
-      <span style="display: block;">pays rent in</span>
-      <span style="display: block; background: linear-gradient(94deg, #9945FF 0%, #14F195 62%); -webkit-background-clip: text; background-clip: text; color: transparent;">$SOL.</span>
+    <h1 style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-size: 68px; line-height: 0.88; font-weight: 700; letter-spacing: -0.055em;">
+      <span style="color: {{accent}};">$</span><span style="color: #FFFFFF;">SCAT</span>
     </h1>
 
-    <p style="margin: 0; font-size: 15px; line-height: 1.55; color: #9A9AAB;">
-      No staking screens. No lock-ups. No homework. Hold the cat and collect $SOL.
+    <p style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-size: 25px; line-height: 1.15; font-weight: 500; letter-spacing: -0.03em; color: #FFFFFF;">
+      <span style="display: block;">The Solana cat that</span>
+      <span style="display: block;">pays rent in <span style="color: {{accent}};">$SOL</span>.</span>
     </p>
 
-    <a href="Buy.dc.html" style="display: flex; align-items: center; justify-content: center; gap: 9px; height: 54px; border-radius: 12px; background: {{accent}}; color: #08080C; font-size: 16px; font-weight: 700; box-shadow: 0 16px 40px -18px rgba(20,241,149,0.6);">
-      Buy $SCAT
+    <p style="margin: 0; font-size: 15px; line-height: 1.66; color: #8E8E96;">
+      <span style="font-weight: 700; color: #FFFFFF;">Solana Cat Mascot.</span> Showed up in a cap, pocketed a Seeker, and started handing out rewards. SCAT lives on Solana — hold the cat, collect $SOL. No staking screens, no lock-ups, no homework.
+    </p>
+
+    <div style="display: flex; align-items: stretch; height: 50px; border: 1px solid #2A2A30; border-radius: 10px; overflow: hidden; background: #0D0D10;">
+      <label for="ca-field-m" style="flex-shrink: 0; width: 42px; display: flex; align-items: center; justify-content: center; border-right: 1px solid #2A2A30; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 10px; letter-spacing: 0.12em; color: #8E8E96;">CA</label>
+      <input id="ca-field-m" type="text" readonly value="[CONTRACT]" style="flex-grow: 1; min-width: 0; border: 0; background: transparent; padding: 0 12px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 13px; color: #FFFFFF;">
+      <button type="button" style="flex-shrink: 0; padding: 0 16px; border: 0; border-left: 1px solid #2A2A30; background: #15151A; color: #FFFFFF; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 10px; font-weight: 700; letter-spacing: 0.14em; cursor: pointer;">COPY</button>
+    </div>
+
+    <a href="#buy" style="display: flex; align-items: center; justify-content: center; gap: 10px; height: 54px; border-radius: 10px; background: {{accent}}; color: #000000; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 13px; font-weight: 700; letter-spacing: 0.14em;">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <path d="M5 12h13"></path><path d="M12 5l7 7-7 7"></path>
+        <path d="M4 17L10 11L14 15L20 8"></path><path d="M20 13V8h-5"></path>
       </svg>
+      BUY $SCAT
     </a>
 
-    <div style="flex-grow: 1; border-radius: 26px; padding: 2px; box-sizing: border-box; background: linear-gradient(158deg, #9945FF 0%, #14F195 52%, #141428 100%);">
-      <div style="width: 100%; height: 100%; box-sizing: border-box; border-radius: 24px; background: #0A0A11; padding: 16px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; color: {{accent}};">
-        <svg width="150" height="165" viewBox="0 0 120 132" fill="none" stroke="currentColor" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M26 44 L21 14 L48 31"></path>
-          <path d="M94 44 L99 14 L72 31"></path>
-          <path d="M26 46 C26 31 41 23 60 23 C79 23 94 31 94 46 C94 75 80 96 60 96 C40 96 26 75 26 46 Z"></path>
-          <circle cx="45" cy="54" r="4.4" fill="currentColor" stroke="none"></circle>
-          <circle cx="75" cy="54" r="4.4" fill="currentColor" stroke="none"></circle>
-          <path d="M54 70 C56.5 74.5 63.5 74.5 66 70"></path>
-          <path d="M13 58 L31 62"></path>
-          <path d="M13 70 L31 70"></path>
-          <path d="M107 58 L89 62"></path>
-          <path d="M107 70 L89 70"></path>
-          <path d="M60 100 L44 110 L44 122 L60 112 L76 122 L76 110 Z" stroke="#9945FF"></path>
-          <circle cx="60" cy="108" r="4" fill="#9945FF" stroke="none"></circle>
-        </svg>
-      </div>
+    <a href="#x" style="display: flex; align-items: center; justify-content: center; gap: 10px; height: 54px; border-radius: 10px; border: 1px solid #2A2A30; background: #0D0D10; color: #FFFFFF; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 13px; font-weight: 500; letter-spacing: 0.14em;">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M18.9 2H22l-6.8 7.8L22.8 22h-6.5l-4.6-6.3L5.9 22H2.8l7.2-8.2L2 2h6.7l4.3 5.9L18.9 2zm-1.1 18h1.7L7.3 3.8H5.5L17.8 20z"></path>
+      </svg>
+      @SCAT_SOLANA
+    </a>
+
+    <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+      <span style="display: flex; align-items: center; gap: 8px; height: 34px; padding: 0 14px; border: 1px solid #1A1A1E; border-radius: 999px; background: #0A0A0C;">
+        <span style="width: 5px; height: 5px; border-radius: 50%; background: {{accent}};"></span>
+        <span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 9px; font-weight: 500; letter-spacing: 0.14em; color: #C9C9D1;">REWARDS IN $SOL</span>
+      </span>
+      <span style="display: flex; align-items: center; gap: 8px; height: 34px; padding: 0 14px; border: 1px solid #1A1A1E; border-radius: 999px; background: #0A0A0C;">
+        <span style="width: 5px; height: 5px; border-radius: 50%; background: #FFFFFF;"></span>
+        <span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 9px; font-weight: 500; letter-spacing: 0.14em; color: #C9C9D1;">STRAIGHT TO HOLDERS</span>
+      </span>
+      <span style="display: flex; align-items: center; gap: 8px; height: 34px; padding: 0 14px; border: 1px solid #1A1A1E; border-radius: 999px; background: #0A0A0C;">
+        <span style="width: 5px; height: 5px; border-radius: 50%; background: #8E8E96;"></span>
+        <span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 9px; font-weight: 500; letter-spacing: 0.14em; color: #C9C9D1;">NOTHING TO STAKE</span>
+      </span>
     </div>
 
-    <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px;">
-      <div style="box-sizing: border-box; padding: 14px 16px; border: 1px solid #1C1C26; border-radius: 14px; background: #0E0E16; display: flex; flex-direction: column; gap: 6px;">
-        <span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 10px; letter-spacing: 0.14em; color: #8F8FA0;">REWARDS PAID</span>
-        <span style="font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 700; letter-spacing: -0.03em; color: #F5F5F7;">[—] SOL</span>
+    <div style="flex-grow: 1; min-height: 300px; display: flex; align-items: center; justify-content: center; position: relative;">
+      <div style="position: absolute; width: 330px; height: 330px; border-radius: 50%; background: radial-gradient(circle, rgba(20,241,149,0.16) 0%, rgba(20,241,149,0) 68%);"></div>
+      <svg width="340" height="340" viewBox="0 0 600 600" fill="none" style="position: absolute;" aria-hidden="true">
+        <path d="M300 60 L508 180 L508 420 L300 540 L92 420 L92 180 Z" stroke="#16161A" stroke-width="2.5"></path>
+        <path d="M300 120 L456 210 L456 390 L300 480 L144 390 L144 210 Z" stroke="#101014" stroke-width="2.5"></path>
+      </svg>
+      <div style="position: relative; width: 236px; height: 262px; border: 1px dashed #2A2A30; border-radius: 14px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 9px; background: rgba(13,13,16,0.35);">
+        <span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; font-weight: 700; letter-spacing: 0.14em; color: #FFFFFF;">[MASCOT PNG]</span>
+        <span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 9px; letter-spacing: 0.12em; color: #8E8E96;">TRANSPARENT</span>
       </div>
-      <div style="box-sizing: border-box; padding: 14px 16px; border: 1px solid #1C1C26; border-radius: 14px; background: #0E0E16; display: flex; flex-direction: column; gap: 6px;">
-        <span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 10px; letter-spacing: 0.14em; color: #8F8FA0;">HOLDERS</span>
-        <span style="font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 700; letter-spacing: -0.03em; color: #F5F5F7;">[—]</span>
-      </div>
-    </div>
-
-    <div style="display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 12px 14px; border: 1px dashed #2A2A3C; border-radius: 12px; background: #0C0C14;">
-      <span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; color: #D6D6E0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">[YOUR CONTRACT ADDRESS]</span>
-      <span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; font-weight: 700; color: {{accent}}; flex-shrink: 0;">COPY</span>
     </div>
   </main>
+
+  <footer style="flex-shrink: 0; box-sizing: border-box; border-top: 1px solid #1A1A1E; padding: 22px 16px; display: flex; flex-direction: column; gap: 16px;">
+    <p style="margin: 0; font-size: 12px; line-height: 1.6; color: #6E6E78;">
+      $SCAT is a community meme coin. It has no intrinsic value, no roadmap of promises, and no expectation of financial return. Not affiliated with Solana Labs or Solana Mobile. Crypto is risky — only bring what you can afford to lose, and always do your own research.
+    </p>
+    <div style="display: flex; align-items: center; gap: 22px;">
+      <a href="#x" style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 10px; font-weight: 500; letter-spacing: 0.16em; color: #8E8E96;">X / TWITTER</a>
+      <a href="#chart" style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 10px; font-weight: 500; letter-spacing: 0.16em; color: #8E8E96;">CHART</a>
+    </div>
+  </footer>
 </div>
 </x-dc>
-<script data-dc-script data-props='{"accent":{"editor":"color","default":"#14F195","options":["#14F195","#00FFA3","#9945FF","#B57CFF"],"section":"Brand"},"$preview":{"width":390,"height":844}}'>
+<script data-dc-script data-props='{"accent":{"editor":"color","default":"#14F195","options":["#14F195","#00FFA3","#FFFFFF","#C5F955"],"section":"Brand"},"$preview":{"width":390,"height":1240}}'>
 class Component extends DCLogic {
   renderVals() {
     return { accent: this.props.accent ?? '#14F195' };

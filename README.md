@@ -3,56 +3,66 @@
 Website design for **SCAT** ($SCAT), a Solana cat-mascot token whose holders are paid
 rewards in $SOL.
 
-- **Palette reference:** solanamobile.com / Solana brand
-- **Content reference:** raycatsolana.com (structure, sections and voice, adapted for SCAT)
+- **Design language:** Solana Mobile / Seeker — true black, monochrome, one green accent
+- **Block structure:** raycatsolana.com — a single screen: ticker, nav, hero, footer
 
-The design lives as a set of artboards in `design/`, authored in the `.dc.html` artboard
-format and laid out by `design/canvas.json`.
+The design lives as artboards in `design/`, authored in the `.dc.html` artboard format and
+laid out by `design/canvas.json`.
 
 ## Artboards
 
-| File | Frame | Section |
+| File | Frame | Contents |
 | --- | --- | --- |
-| `Main.dc.html` | 1440 × 980 | Nav, hero, mascot plate, stat strip |
-| `Rewards.dc.html` | 1440 × 980 | Rewards value props + 3-step "how it works" |
-| `Story.dc.html` | 1440 × 980 | The cat's story, token spec, distribution |
-| `Buy.dc.html` | 1440 × 980 | How to buy (4 steps), FAQ, footer |
-| `Mobile.dc.html` | 390 × 844 | Hero at phone width |
-| `Foundations.dc.html` | 1100 × 680 | Palette, type scale, controls |
+| `Main.dc.html` | 1440 × 980 | Whole page: marquee ticker, nav, hero, legal footer |
+| `Mobile.dc.html` | 390 × 1240 | Same page stacked for phone |
+| `Foundations.dc.html` | 1100 × 620 | Palette, type scale, controls, hex mark |
+
+## Page blocks
+
+Mirrors the reference one-for-one:
+
+1. **Marquee ticker** — mono uppercase claims separated by green diamonds
+2. **Nav** — hex `S` mark + `SCAT` wordmark, links: X / CHART / BUY
+3. **Hero** — meta row, `$SCAT` display wordmark, "The Solana cat that pays rent in $SOL.",
+   mascot paragraph, CA field with COPY, two CTAs, three status pills, mascot at right
+4. **Footer** — risk disclaimer, social links
 
 ## Color tokens
 
-Dark, near-black ground with the Solana purple→green gradient used as a signature accent
-rather than a background wash.
+True black ground, monochrome greys, a single green accent. No purple and no gradient
+headings: the accent reads because nothing else competes with it.
 
 | Token | Value | Use |
 | --- | --- | --- |
-| `page` | `#08080C` | Page background |
-| `raised` | `#0C0C14` | Raised panels, contract chip |
-| `card` | `#0E0E16` | Cards |
-| `chip` | `#141428` | Icon tiles, logo tile (purple-tinted dark) |
-| `hairline` | `#1C1C26` | Section dividers, card borders |
-| `border` | `#2A2A3C` | Control borders |
-| `text` | `#F5F5F7` | Primary text |
-| `text-dim` | `#9A9AAB` | Secondary text (7:1 on `page`) |
-| `accent` | `#14F195` | Primary accent, CTAs (Solana green) |
-| `accent-hi` | `#00FFA3` | Hover (Solana surge green) |
-| `brand-2` | `#9945FF` | Solana purple — fills, borders, glows |
-| `brand-2-text` | `#B57CFF` | Purple as text (lightened to clear 4.5:1) |
+| `page` | `#000000` | Page background |
+| `ticker` | `#050506` | Ticker strip, footer panels |
+| `field` | `#0D0D10` | Inputs, secondary button |
+| `chip` | `#15151A` | COPY button |
+| `hairline` | `#1A1A1E` | Section dividers, pill borders |
+| `border` | `#2A2A30` | Control borders |
+| `legal` | `#6E6E78` | Disclaimer text |
+| `dim` | `#8E8E96` | Mono labels, secondary text (6.4:1 on `page`) |
+| `soft` | `#C9C9D1` | Pill labels |
+| `text` | `#FFFFFF` | Primary text |
+| `accent` | `#14F195` | `$` glyph, `$SOL`, primary CTA, live dot |
+| `accent-hi` | `#00FFA3` | Hover |
 
-Signature gradient: `linear-gradient(94deg, #9945FF, #14F195)` — used for one word per
-heading and for the ring around the mascot plate only.
+Accent glow: `radial-gradient(circle, rgba(20,241,149,0.16), transparent 68%)` behind the
+mascot, once per page.
 
 ## Type
 
-- **Display:** Space Grotesk 700, letter-spacing `-0.045em` — 86 / 56 / 40 / 25px
-- **Body:** Manrope 400–700 — 19 / 17 / 15px at 1.6
-- **Labels & numbers:** JetBrains Mono 500, letter-spacing `0.18em` — 12px uppercase
+- **Display:** Space Grotesk 700, `-0.055em` — `$SCAT` at 122px; subhead 500 at 37px
+- **Body:** Manrope 400–700 — 16px / 1.7; disclaimer 13px
+- **Labels, ticker, pills, CA:** JetBrains Mono 500, `0.16–0.20em`, 10–12px uppercase
 
-Radii: 10 / 12 / 20 / 44px. Touch targets ≥ 44px.
+Radii: 10px controls, 999px pills. Touch targets ≥ 44px.
 
-## Placeholders
+## Open items
 
-Facts that belong to the real launch are left as bracketed placeholders, not invented:
-contract address, total supply, reward share, tax, payout schedule, liquidity and mint
-authority status, rewards-paid and holder counts.
+- **Mascot art** is a labelled placeholder (392 × 430, transparent PNG) — the real file has
+  not been supplied in a form the build can read.
+- **Seeker press kit** has not been applied: the Drive folder is shared but its contents
+  cannot be enumerated with the available tooling, so the palette above is the Solana
+  Mobile direction plus the verified Solana brand green, not measured press-kit values.
+- Launch facts are bracketed placeholders: contract address, socials handle.

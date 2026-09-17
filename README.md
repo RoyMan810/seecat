@@ -16,8 +16,8 @@ laid out by `design/canvas.json`.
 
 | File | Frame | Contents |
 | --- | --- | --- |
-| `Main.dc.html` | 1440 × 2464 | Whole desktop page |
-| `Mobile.dc.html` | 390 × 3386 | Same page stacked for phone |
+| `Main.dc.html` | 1440 × 2440 | Whole desktop page |
+| `Mobile.dc.html` | 390 × 3330 | Same page stacked for phone |
 | `Foundations.dc.html` | 1180 × 720 | Palette, type scale, controls |
 
 Source files: `SCAT.png` (mascot, 1024², transparent) and `solanamobile.png`
@@ -37,7 +37,8 @@ Takes the reference's rhythm in blocks 1–3, then goes its own way:
    your keys stay yours, built on Solana
 5. **How it works** — 01 Buy / 02 Hold / 03 Collect, on accent-to-grey rules
 6. **Stat band** — rewards paid, holders, supply, reward token
-7. **Footer** — mark, socials, risk and non-affiliation disclaimer
+7. **Footer** — three large nav words, the mark with the X handle, then a rule and the
+   risk and non-affiliation disclaimer
 
 ## Color tokens
 
@@ -69,9 +70,10 @@ centred behind the mascot (warm, with violet riding above it), and clipped into 
 `$SCAT`, the word "Seeker" and `$SOL`. Step accents on the how-it-works rules take single
 stops from it.
 
-Two borrowings were cut on review: the full-bleed band above the footer, and the hairline
-vertical column rules in the hero. Both work on the reference because dense product
-content sits on that grid; over an open hero they read as stray lines.
+Three borrowings were cut on review: the full-bleed band above the footer, the hairline
+vertical column rules in the hero, and the footer's `↳` link columns. Each works on the
+reference because dense product content fills it; at this page's scale they read as
+structure with nothing to hold.
 
 ## Type
 
@@ -94,7 +96,7 @@ Radii: 999px everywhere (pills, field, COPY), 8–10px on swatches. Touch target
   column rule between cells
 - Caption pattern **`Bold lead.`** then grey continuation — the same construction the
   Seeker Reviewer's Guide uses throughout
-- Footer: large grey nav words beside tiny uppercase link columns under `↳` headings
+- Footer: large grey nav words as the only navigation
 
 ## Open items
 

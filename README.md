@@ -16,8 +16,8 @@ laid out by `design/canvas.json`.
 
 | File | Frame | Contents |
 | --- | --- | --- |
-| `Main.dc.html` | 1440 × 2584 | Whole desktop page |
-| `Mobile.dc.html` | 390 × 3440 | Same page stacked for phone |
+| `Main.dc.html` | 1440 × 2464 | Whole desktop page |
+| `Mobile.dc.html` | 390 × 3386 | Same page stacked for phone |
 | `Foundations.dc.html` | 1180 × 720 | Palette, type scale, controls |
 
 Source files: `SCAT.png` (mascot, 1024², transparent) and `solanamobile.png`
@@ -64,10 +64,13 @@ Sampled down the footer band of the reference at `x=120`, `y=8700…8970`:
 
 `#7E4593` → `#B15292` → `#E8636C` → `#F6913F` → `#F9C18D` → `#FDF3E7`
 
-violet → magenta → coral → orange → peach → cream. Used three ways only: the band above
-the footer, two radial blooms behind the mascot (warm low-left, violet upper-right), and
-clipped into the `$` of `$SCAT`, the word "Seeker" and `$SOL`. Step accents on the
-how-it-works rules take single stops from it.
+violet → magenta → coral → orange → peach → cream. Used two ways only: as radial blooms
+centred behind the mascot (warm, with violet riding above it), and clipped into the `$` of
+`$SCAT`, the word "Seeker" and `$SOL`. Step accents on the how-it-works rules take single
+stops from it.
+
+The full-bleed band above the footer was cut — it read as one flourish too many against
+an otherwise restrained page.
 
 ## Type
 
@@ -90,8 +93,7 @@ Radii: 999px everywhere (pills, field, COPY), 8–10px on swatches. Touch target
 - Numbered grid cells: a small boxed `01` in the cell's top-left corner
 - Caption pattern **`Bold lead.`** then grey continuation — the same construction the
   Seeker Reviewer's Guide uses throughout
-- Footer: large grey nav words beside tiny uppercase link columns under `↳` headings,
-  with the sunset band bleeding in above
+- Footer: large grey nav words beside tiny uppercase link columns under `↳` headings
 
 ## Open items
 

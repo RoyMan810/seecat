@@ -9,6 +9,9 @@ rewards in $SKR.
 - **Block rhythm:** raycatsolana.com, loosely — ticker, nav, hero with a CA field and
   status pills, then our own sections rather than a copy of theirs
 
+Mint: `Eyvmi7QVpSXWbB7WLqf5ksfbRugaiFudubeLtpEDsnkh`. Every buy button points at
+`https://app.jtx.com/?mint=<that>`, so the swap opens with the pair already chosen.
+
 There are two things here:
 
 - **`index.html` + `assets/`** — the actual site, built from the design system below.
@@ -56,14 +59,15 @@ python3 -m http.server 8000     # then http://localhost:8000
 | Copy button | Clipboard API with a selection fallback for non-secure origins, `COPIED` for 1.8s |
 | Focus | `:focus-visible` rings on every link, button and input |
 | Images | `width`/`height` set to reserve space; the coin is `aria-hidden`, the mascot carries the alt text |
+| Buy buttons | All four (nav, hero, how-it-works, footer) open `app.jtx.com/?mint=<CA>` in a new tab |
 
 ### SEO and link previews
 
 `index.html`'s head carries the title, description, canonical, robots, Open Graph, X card
 and a `WebSite` JSON-LD block.
 
-`canonical`, `og:url` and the JSON-LD `url` all point at **https://seecatsol.com/**, the
-apex domain in `CNAME`. Keep the three in step if the domain ever changes.
+`canonical`, `og:url` and the JSON-LD `url` all point at the apex,
+**https://seecatsol.com/**. Keep the three in step if the domain ever changes.
 
 ### Favicon
 
@@ -104,6 +108,11 @@ The artboards are fixed at 1440 and 390; the site is fluid between them.
   the coin's lower face — 56px at desktop, 36px at phone width.
 - Stacked layouts reserve `0.267 x --fig-w` above the figure, because the coin overhangs its
   own box by 26.9% and would otherwise ride up over the status dots.
+- The CA field is a pill above 600px and a stacked card below it. The address is 44
+  characters and only clears the label and the COPY button once the field reaches its full
+  540px; below that the three parts each take a row, with the mono size on a `clamp()` that
+  keeps all 44 characters readable down to a 320px viewport. Ellipsizing the one string a
+  buyer is told to check twice was the wrong trade.
 
 ## Artboards
 
@@ -200,8 +209,8 @@ Radii: 999px everywhere (pills, field, COPY), 8–10px on swatches. Touch target
 - The reference's display face is a wide geometric grotesque that is not a Google font.
   Manrope 800 at tight tracking is the closest freely available stand-in; swap in the real
   face if the press kit ships one.
-- Launch facts are bracketed placeholders: contract address, supply, holders, rewards
-  paid, socials handle.
+- The contract address and the X handle are live. Three stat-band values are still
+  placeholders (`[—]`): rewards paid, holders, total supply.
 - Claims are deliberately narrow: no Seeker Season, dApp Store or Seed Vault *integration*
   is asserted anywhere — only that a Seeker owner's keys live in their own Seed Vault.
 

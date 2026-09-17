@@ -438,6 +438,31 @@ a:hover { color: var(--s5); }
 .ca__copy:hover { background: #33333A; }
 .ca__copy[data-state="done"] { background: var(--s5); color: var(--page); }
 
+/* The address is 44 characters. It fits beside COPY from 768px up; on a phone it
+   would ellipsize, and the one string a buyer has to check twice is the wrong
+   thing to clip — so the pill becomes a stacked card and each part gets a row.
+   The switch is at 600px, not the nav breakpoint: the pill needs the field at its
+   full 540px before the address clears the label and the COPY button. */
+@media (max-width: 599px) {
+  .ca {
+    display: block;
+    height: auto;
+    padding: 14px 16px;
+    border-radius: 20px;
+  }
+  .ca__label { padding: 0 0 7px; }
+  .ca__input {
+    display: block;
+    width: 100%;
+    font-size: clamp(9.4px, 2.95vw, 12px);
+  }
+  .ca__copy {
+    width: 100%;
+    height: 42px;
+    margin: 11px 0 0;
+  }
+}
+
 .cta-row {
   display: flex;
   flex-wrap: wrap;

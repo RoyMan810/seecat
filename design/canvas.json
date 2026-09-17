@@ -1,5 +1,4 @@
 {
-  "v": 3,
   "attachments": {},
   "boards": {
     "Foundations.dc.html": {
@@ -10,15 +9,15 @@
       "y": 0
     },
     "Main.dc.html": {
-      "h": 2440,
-      "title": "Desktop 1440 — full page",
+      "h": 2465,
+      "title": "Desktop 1440 \u2014 full page",
       "w": 1440,
       "x": 0,
       "y": 0
     },
     "Mobile.dc.html": {
-      "h": 3410,
-      "title": "Mobile 390 — full page",
+      "h": 3580,
+      "title": "Mobile 390 \u2014 full page",
       "w": 390,
       "x": 1520,
       "y": 0
@@ -36,7 +35,7 @@
     "n1": {
       "kind": "title1",
       "maxW": 3170,
-      "text": "SEECAT — Solana Mobile palette, real mascot",
+      "text": "SEECAT \u2014 Solana Mobile palette, real mascot",
       "w": 240,
       "x": 0,
       "y": -300
@@ -48,5 +47,6 @@
     "Foundations.dc.html"
   ],
   "pages": [],
-  "title": "SEECAT"
+  "title": "SEECAT",
+  "v": 3
 }

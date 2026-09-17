@@ -61,7 +61,14 @@ body {
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  overflow-x: hidden;
+
+  /* clip, not hidden. overflow-x: hidden forces overflow-y to auto, which makes
+     body its own scroll container — and then the sticky nav sticks to that box
+     instead of the viewport. On phones the two fall out of step as the URL bar
+     collapses and the nav leaves a strip of empty page above itself. clip does
+     the same job (containing the coin and the blooms) without creating a scroll
+     container, so the nav sticks to the viewport and the strip is gone. */
+  overflow-x: clip;
 }
 
 h1, h2, h3, h4, p { margin: 0; }
@@ -119,6 +126,19 @@ a:hover { color: var(--s5); }
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+}
+
+/* background-clip: text paints only inside the inline box, and the negative
+   letter-spacing pulls that box in behind the last glyph's right side bearing
+   — it was shaving the shoulder off the r in "Seeker" (3.7px at 38px) and a
+   sliver off the T in "SEECAT". Widen the paint area, then take the same
+   amount back as margin so nothing on the line moves. Right side only: a
+   negative left margin on the first span would drag the $ out of the column. */
+.gradient-text,
+.wordmark__sigil,
+.wordmark__name {
+  padding-right: 0.14em;
+  margin-right: -0.14em;
 }
 
 /* ==========================================================================
@@ -689,6 +709,12 @@ a:hover { color: var(--s5); }
   gap: 18px;
   align-items: flex-start;
 }
+.footer__handles {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 22px;
+}
 .footer__handle {
   display: inline-flex;
   align-items: center;
@@ -719,4 +745,5 @@ a:hover { color: var(--s5); }
 
 @media (min-width: 900px) {
   .footer__lockup { align-items: flex-end; }
+  .footer__handles { justify-content: flex-end; }
 }

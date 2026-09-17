@@ -60,6 +60,7 @@ python3 -m http.server 8000     # then http://localhost:8000
 | Focus | `:focus-visible` rings on every link, button and input |
 | Images | `width`/`height` set to reserve space; the coin is `aria-hidden`, the mascot carries the alt text |
 | Buy buttons | All four (nav, hero, how-it-works, footer) open `app.jtx.com/?mint=<CA>` in a new tab |
+| Socials | X and Telegram, both `@SeeCat_sol` — in the hero CTA row and the footer lockup, and both in the JSON-LD `sameAs` |
 
 ### SEO and link previews
 
@@ -108,6 +109,11 @@ The artboards are fixed at 1440 and 390; the site is fluid between them.
   the coin's lower face — 56px at desktop, 36px at phone width.
 - Stacked layouts reserve `0.267 x --fig-w` above the figure, because the coin overhangs its
   own box by 26.9% and would otherwise ride up over the status dots.
+- `body` uses **`overflow-x: clip`, not `hidden`**. `hidden` forces `overflow-y` to `auto`,
+  which makes `body` its own scroll container — and then the sticky nav sticks to that box
+  rather than the viewport. On phones the two fall out of step as the URL bar collapses, and
+  the nav leaves a strip of empty page above itself. `clip` contains the coin and the blooms
+  just as well without creating a scroll container. Keep it that way.
 - The CA field is a pill above 600px and a stacked card below it. The address is 44
   characters and only clears the label and the COPY button once the field reaches its full
   540px; below that the three parts each take a row, with the mono size on a `clamp()` that
@@ -118,8 +124,8 @@ The artboards are fixed at 1440 and 390; the site is fluid between them.
 
 | File | Frame | Contents |
 | --- | --- | --- |
-| `Main.dc.html` | 1440 × 2440 | Whole desktop page |
-| `Mobile.dc.html` | 390 × 3410 | Same page stacked for phone |
+| `Main.dc.html` | 1440 × 2465 | Whole desktop page |
+| `Mobile.dc.html` | 390 × 3680 | Same page stacked for phone |
 | `Foundations.dc.html` | 1180 × 720 | Palette, type scale, controls |
 
 The site's `assets/css/styles.css` carries the same tokens as CSS custom properties, so the
@@ -134,14 +140,14 @@ and `solanamobile.png` (full-page reference screenshot, 1905 × 9535).
 1. **Nav** — hex mark + letterspaced `SEECAT` wordmark, section links, `Community`
    pointing at X, and the white `Buy $SEECAT` pill
 2. **Hero** — meta row, `$SEECAT` display wordmark, "The cat that lives in your Seeker.",
-   mascot paragraph, CA field with COPY, two CTAs, three status pills; mascot at right,
-   standing on the $SKR coin and centred in two sunset blooms
+   mascot paragraph, CA field with COPY, three CTAs (buy, X, Telegram), three status pills;
+   mascot at right, standing on the $SKR coin and centred in two sunset blooms
 3. **How it works** — 01 Buy / 02 Hold / 03 Collect, on accent-to-grey rules
 4. **What holding gets you** — two cards in the Reviewer's Guide pattern: rewards in $SKR,
    built on Solana
 5. **Stat band** — rewards paid, holders, supply, reward token
-6. **Footer** — large nav words, the mark with the `@SeeCat_sol` handle, then a rule and
-   the risk and non-affiliation disclaimer
+6. **Footer** — large nav words, the mark with the `@SeeCat_sol` handles for X and
+   Telegram, then a rule and the risk and non-affiliation disclaimer
 
 The artboards in `design/` still show the earlier arrangement: a marquee ticker above the
 nav, a `Chart` pill beside `Buy`, a third card ("Your keys stay yours") and numbered `01`
@@ -193,6 +199,16 @@ One family, as the reference does:
 - **JetBrains Mono** — the contract address string only, where a hash needs a mono face
 
 Radii: 999px everywhere (pills, field, COPY), 8–10px on swatches. Touch targets ≥ 44px.
+
+### Gradient text needs room to paint
+
+`background-clip: text` paints only inside the inline box, and the negative letter-spacing
+these headings use pulls that box in behind the last glyph's right side bearing. Measured
+against the glyph ink: 3.7px short on "Seeker" at 38px, 5.8px on "SEECAT" at 130px. The
+visible result was an `r` with no shoulder. Every gradient-clipped span carries
+`padding-right: 0.14em` with `margin-right: -0.14em` — the paint area grows, the layout does
+not move. Right side only: a negative left margin on the first span would drag the `$` out
+of the column.
 
 ## Craft borrowed from the reference
 

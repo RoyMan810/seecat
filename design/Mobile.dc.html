@@ -14,7 +14,7 @@
     a:hover { color: #FFFFFF; }
   </style>
 </helmet>
-<div style="width: 390px; height: 1240px; box-sizing: border-box; background: #000000; color: #FFFFFF; display: flex; flex-direction: column; overflow: hidden;">
+<div style="width: 390px; height: 3280px; box-sizing: border-box; background: #000000; color: #FFFFFF; display: flex; flex-direction: column; overflow: hidden;">
 
   <div style="flex-shrink: 0; height: 38px; box-sizing: border-box; border-bottom: 1px solid #1A1A1E; background: #050506; display: flex; align-items: center; gap: 18px; padding: 0 16px; overflow: hidden; white-space: nowrap;">
     <span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 10px; font-weight: 500; letter-spacing: 0.18em; color: #8E8E96;">HOLD THE CAT</span>
@@ -32,13 +32,14 @@
       </svg>
       <span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 17px; font-weight: 700; letter-spacing: 0.14em;">SCAT</span>
     </a>
-    <div style="display: flex; align-items: center; gap: 18px;">
-      <a href="#x" style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; font-weight: 500; letter-spacing: 0.16em; color: #8E8E96;">X</a>
-      <a href="#chart" style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; font-weight: 500; letter-spacing: 0.16em; color: #8E8E96;">CHART</a>
-    </div>
+    <button type="button" aria-label="Open menu" style="width: 44px; height: 44px; border-radius: 10px; border: 1px solid #2A2A30; background: #0D0D10; color: #FFFFFF; display: flex; align-items: center; justify-content: center; cursor: pointer; padding: 0;">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true">
+        <path d="M4 8h16"></path><path d="M4 16h16"></path>
+      </svg>
+    </button>
   </header>
 
-  <main style="flex-grow: 1; box-sizing: border-box; padding: 24px 16px; display: flex; flex-direction: column; gap: 16px;">
+  <section style="flex-shrink: 0; box-sizing: border-box; padding: 24px 16px 28px; display: flex; flex-direction: column; gap: 16px; border-bottom: 1px solid #1A1A1E;">
 
     <div style="display: flex; align-items: center; gap: 9px; flex-wrap: wrap;">
       <span style="display: flex; align-items: center; gap: 7px;">
@@ -48,7 +49,7 @@
       <span style="color: #2A2A30; font-size: 7px;">◆</span>
       <span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 10px; font-weight: 500; letter-spacing: 0.18em; color: #8E8E96;">SOLANA</span>
       <span style="color: #2A2A30; font-size: 7px;">◆</span>
-      <span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 10px; font-weight: 500; letter-spacing: 0.18em; color: #8E8E96;">SEEKER</span>
+      <span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 10px; font-weight: 500; letter-spacing: 0.18em; color: #8E8E96;">SELF-CUSTODY</span>
       <span style="color: #2A2A30; font-size: 7px;">◆</span>
       <span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 10px; font-weight: 500; letter-spacing: 0.18em; color: #8E8E96;">$SOL REWARDS</span>
     </div>
@@ -57,13 +58,13 @@
       <span style="color: {{accent}};">$</span><span style="color: #FFFFFF;">SCAT</span>
     </h1>
 
-    <p style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-size: 25px; line-height: 1.15; font-weight: 500; letter-spacing: -0.03em; color: #FFFFFF;">
-      <span style="display: block;">The Solana cat that</span>
-      <span style="display: block;">pays rent in <span style="color: {{accent}};">$SOL</span>.</span>
+    <p style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-size: 27px; line-height: 1.14; font-weight: 500; letter-spacing: -0.03em; color: #FFFFFF;">
+      <span style="display: block;">The cat that rides</span>
+      <span style="display: block;">in your <span style="color: {{accent}};">Seeker</span>.</span>
     </p>
 
     <p style="margin: 0; font-size: 15px; line-height: 1.66; color: #8E8E96;">
-      <span style="font-weight: 700; color: #FFFFFF;">Solana Cat Mascot.</span> Showed up in a cap, pocketed a Seeker, and started handing out rewards. SCAT lives on Solana — hold the cat, collect $SOL. No staking screens, no lock-ups, no homework.
+      <span style="font-weight: 700; color: #FFFFFF;">Solana Cat Mascot.</span> Showed up in a cap, pocketed a Seeker, and started handing out rewards. Hold $SCAT in the wallet you already carry and collect $SOL — no staking screens, no lock-ups, no homework.
     </p>
 
     <div style="display: flex; align-items: stretch; height: 50px; border: 1px solid #2A2A30; border-radius: 10px; overflow: hidden; background: #0D0D10;">
@@ -101,31 +102,133 @@
       </span>
     </div>
 
-    <div style="flex-grow: 1; min-height: 300px; display: flex; align-items: center; justify-content: center; position: relative;">
-      <div style="position: absolute; width: 330px; height: 330px; border-radius: 50%; background: radial-gradient(circle, rgba(20,241,149,0.16) 0%, rgba(20,241,149,0) 68%);"></div>
-      <svg width="340" height="340" viewBox="0 0 600 600" fill="none" style="position: absolute;" aria-hidden="true">
-        <path d="M300 60 L508 180 L508 420 L300 540 L92 420 L92 180 Z" stroke="#16161A" stroke-width="2.5"></path>
-        <path d="M300 120 L456 210 L456 390 L300 480 L144 390 L144 210 Z" stroke="#101014" stroke-width="2.5"></path>
+    <div style="height: 320px; display: flex; align-items: center; justify-content: center; position: relative;">
+      <div style="position: absolute; width: 330px; height: 330px; border-radius: 50%; background: radial-gradient(circle, rgba(20,241,149,0.17) 0%, rgba(20,241,149,0) 68%);"></div>
+      <svg width="350" height="350" viewBox="0 0 640 640" fill="none" style="position: absolute;" aria-hidden="true">
+        <path d="M320 56 L548 188 L548 452 L320 584 L92 452 L92 188 Z" stroke="#17171B" stroke-width="2.5"></path>
+        <path d="M320 124 L489 222 L489 418 L320 516 L151 418 L151 222 Z" stroke="#101014" stroke-width="2.5"></path>
       </svg>
-      <div style="position: relative; width: 236px; height: 262px; border: 1px dashed #2A2A30; border-radius: 14px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 9px; background: rgba(13,13,16,0.35);">
-        <span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; font-weight: 700; letter-spacing: 0.14em; color: #FFFFFF;">[MASCOT PNG]</span>
+      <div style="position: relative; width: 246px; height: 270px; border: 1px dashed #2A2A30; border-radius: 14px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 9px; background: rgba(13,13,16,0.35);">
+        <span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; font-weight: 700; letter-spacing: 0.14em; color: #FFFFFF;">[SCAT.PNG]</span>
         <span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 9px; letter-spacing: 0.12em; color: #8E8E96;">TRANSPARENT</span>
       </div>
     </div>
-  </main>
+  </section>
 
-  <footer style="flex-shrink: 0; box-sizing: border-box; border-top: 1px solid #1A1A1E; padding: 22px 16px; display: flex; flex-direction: column; gap: 16px;">
-    <p style="margin: 0; font-size: 12px; line-height: 1.6; color: #6E6E78;">
-      $SCAT is a community meme coin. It has no intrinsic value, no roadmap of promises, and no expectation of financial return. Not affiliated with Solana Labs or Solana Mobile. Crypto is risky — only bring what you can afford to lose, and always do your own research.
-    </p>
-    <div style="display: flex; align-items: center; gap: 22px;">
+  <section style="flex-shrink: 0; box-sizing: border-box; padding: 52px 16px; display: flex; flex-direction: column; gap: 26px; border-bottom: 1px solid #1A1A1E;">
+    <div style="display: flex; flex-direction: column; gap: 14px;">
+      <span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 10px; font-weight: 500; letter-spacing: 0.2em; color: {{accent}};">// WHAT YOU GET</span>
+      <h2 style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-size: 34px; line-height: 1.04; font-weight: 700; letter-spacing: -0.042em;">Three things, and nothing else to learn.</h2>
+      <p style="margin: 0; font-size: 14px; line-height: 1.65; color: #8E8E96;">There is no protocol to understand here. A cat, a wallet you already own, and rewards that turn up by themselves.</p>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 12px;">
+      <div style="box-sizing: border-box; padding: 22px; border: 1px solid #1A1A1E; border-radius: 16px; background: #070709; display: flex; flex-direction: column; gap: 13px;">
+        <span style="width: 40px; height: 40px; border-radius: 11px; background: #0D0D10; border: 1px solid #2A2A30; display: flex; align-items: center; justify-content: center; color: {{accent}};">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 2v20"></path><path d="M17 6.5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"></path>
+          </svg>
+        </span>
+        <h3 style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-size: 21px; font-weight: 700; letter-spacing: -0.028em;">Rewards in $SOL</h3>
+        <p style="margin: 0; font-size: 14px; line-height: 1.6; color: #8E8E96;"><span style="color: #FFFFFF; font-weight: 700;">Paid to your wallet.</span> Real $SOL — not points, not a second token you have to sell first.</p>
+        <p style="margin: 0; font-size: 14px; line-height: 1.6; color: #8E8E96;"><span style="color: #FFFFFF; font-weight: 700;">Nothing to claim.</span> No weekly ritual, no dashboard to babysit.</p>
+      </div>
+
+      <div style="box-sizing: border-box; padding: 22px; border: 1px solid #1A1A1E; border-radius: 16px; background: #070709; display: flex; flex-direction: column; gap: 13px;">
+        <span style="width: 40px; height: 40px; border-radius: 11px; background: #0D0D10; border: 1px solid #2A2A30; display: flex; align-items: center; justify-content: center; color: #FFFFFF;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="4" y="10" width="16" height="11" rx="2.5"></rect><path d="M8 10V7a4 4 0 018 0v3"></path><path d="M12 14.5v2.5"></path>
+          </svg>
+        </span>
+        <h3 style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-size: 21px; font-weight: 700; letter-spacing: -0.028em;">Your keys stay yours</h3>
+        <p style="margin: 0; font-size: 14px; line-height: 1.6; color: #8E8E96;"><span style="color: #FFFFFF; font-weight: 700;">Self-custody only.</span> No approvals, no migration, no staking contract to trust.</p>
+        <p style="margin: 0; font-size: 14px; line-height: 1.6; color: #8E8E96;"><span style="color: #FFFFFF; font-weight: 700;">On a Seeker, that means the Seed Vault.</span> Your keys never leave the hardware.</p>
+      </div>
+
+      <div style="box-sizing: border-box; padding: 22px; border: 1px solid #1A1A1E; border-radius: 16px; background: #070709; display: flex; flex-direction: column; gap: 13px;">
+        <span style="width: 40px; height: 40px; border-radius: 11px; background: #0D0D10; border: 1px solid #2A2A30; display: flex; align-items: center; justify-content: center; color: {{accent}};">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M13 2L4.5 13.5H11l-1 8.5L18.5 10H12l1-8z"></path>
+          </svg>
+        </span>
+        <h3 style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-size: 21px; font-weight: 700; letter-spacing: -0.028em;">Built on Solana</h3>
+        <p style="margin: 0; font-size: 14px; line-height: 1.6; color: #8E8E96;"><span style="color: #FFFFFF; font-weight: 700;">Sub-second settlement.</span> Fees small enough to ignore entirely.</p>
+        <p style="margin: 0; font-size: 14px; line-height: 1.6; color: #8E8E96;"><span style="color: #FFFFFF; font-weight: 700;">A mobile-first crowd.</span> Made for the people already carrying the phone.</p>
+      </div>
+    </div>
+  </section>
+
+  <section style="flex-shrink: 0; box-sizing: border-box; padding: 52px 16px; display: flex; flex-direction: column; gap: 24px; border-bottom: 1px solid #1A1A1E;">
+    <div style="display: flex; flex-direction: column; gap: 14px;">
+      <span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 10px; font-weight: 500; letter-spacing: 0.2em; color: #8E8E96;">// HOW IT WORKS</span>
+      <h2 style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-size: 34px; line-height: 1.04; font-weight: 700; letter-spacing: -0.042em;">Three steps, one cat.</h2>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 20px;">
+      <div style="display: flex; flex-direction: column; gap: 10px; padding-top: 18px; border-top: 2px solid {{accent}};">
+        <span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; font-weight: 700; letter-spacing: 0.12em; color: {{accent}};">01</span>
+        <h4 style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 700; letter-spacing: -0.03em;">Buy $SCAT</h4>
+        <p style="margin: 0; font-size: 14px; line-height: 1.6; color: #8E8E96;">Paste the contract into any Solana DEX or the wallet you already use, check it twice, swap.</p>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 10px; padding-top: 18px; border-top: 2px solid #FFFFFF;">
+        <span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; font-weight: 700; letter-spacing: 0.12em; color: #FFFFFF;">02</span>
+        <h4 style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 700; letter-spacing: -0.03em;">Hold the cat</h4>
+        <p style="margin: 0; font-size: 14px; line-height: 1.6; color: #8E8E96;">Leave him where he lands. Holding is the entire strategy and there is nothing to sign.</p>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 10px; padding-top: 18px; border-top: 2px solid #2A2A30;">
+        <span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; font-weight: 700; letter-spacing: 0.12em; color: #8E8E96;">03</span>
+        <h4 style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 700; letter-spacing: -0.03em;">Collect $SOL</h4>
+        <p style="margin: 0; font-size: 14px; line-height: 1.6; color: #8E8E96;">Rewards arrive on their own. Check the wallet, or don't — they land either way.</p>
+      </div>
+    </div>
+
+    <a href="#buy" style="display: flex; align-items: center; justify-content: center; height: 54px; border-radius: 10px; background: {{accent}}; color: #000000; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 13px; font-weight: 700; letter-spacing: 0.14em;">START HOLDING</a>
+  </section>
+
+  <section style="flex-shrink: 0; box-sizing: border-box; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border-bottom: 1px solid #1A1A1E;">
+    <div style="box-sizing: border-box; padding: 26px 16px; display: flex; flex-direction: column; gap: 9px; border-bottom: 1px solid #1A1A1E;">
+      <span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 9px; letter-spacing: 0.16em; color: #8E8E96;">REWARDS PAID</span>
+      <span style="font-family: 'Space Grotesk', sans-serif; font-size: 27px; font-weight: 700; letter-spacing: -0.04em; color: #FFFFFF;">[—] SOL</span>
+    </div>
+    <div style="box-sizing: border-box; padding: 26px 16px; border-left: 1px solid #1A1A1E; border-bottom: 1px solid #1A1A1E; display: flex; flex-direction: column; gap: 9px;">
+      <span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 9px; letter-spacing: 0.16em; color: #8E8E96;">HOLDERS</span>
+      <span style="font-family: 'Space Grotesk', sans-serif; font-size: 27px; font-weight: 700; letter-spacing: -0.04em; color: #FFFFFF;">[—]</span>
+    </div>
+    <div style="box-sizing: border-box; padding: 26px 16px; display: flex; flex-direction: column; gap: 9px;">
+      <span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 9px; letter-spacing: 0.16em; color: #8E8E96;">TOTAL SUPPLY</span>
+      <span style="font-family: 'Space Grotesk', sans-serif; font-size: 27px; font-weight: 700; letter-spacing: -0.04em; color: #FFFFFF;">[—]</span>
+    </div>
+    <div style="box-sizing: border-box; padding: 26px 16px; border-left: 1px solid #1A1A1E; display: flex; flex-direction: column; gap: 9px;">
+      <span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 9px; letter-spacing: 0.16em; color: #8E8E96;">REWARD TOKEN</span>
+      <span style="font-family: 'Space Grotesk', sans-serif; font-size: 27px; font-weight: 700; letter-spacing: -0.04em; color: {{accent}};">$SOL</span>
+    </div>
+  </section>
+
+  <footer style="flex-grow: 1; box-sizing: border-box; padding: 32px 16px; display: flex; flex-direction: column; justify-content: space-between; gap: 24px; background: #030304;">
+    <div style="display: flex; align-items: center; justify-content: space-between; gap: 16px;">
+      <div style="display: flex; align-items: center; gap: 11px;">
+        <svg width="34" height="34" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+          <path d="M20 2.5 L34.5 11 L34.5 29 L20 37.5 L5.5 29 L5.5 11 Z" stroke="#2A2A30" stroke-width="1.5" fill="#0D0D10"></path>
+          <text x="20" y="26" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="17" font-weight="700" fill="#14F195">S</text>
+        </svg>
+        <span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 15px; font-weight: 700; letter-spacing: 0.14em;">SCAT</span>
+      </div>
+      <span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 10px; letter-spacing: 0.16em; color: #6E6E78;">© 2026</span>
+    </div>
+
+    <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 18px;">
       <a href="#x" style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 10px; font-weight: 500; letter-spacing: 0.16em; color: #8E8E96;">X / TWITTER</a>
+      <a href="#telegram" style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 10px; font-weight: 500; letter-spacing: 0.16em; color: #8E8E96;">TELEGRAM</a>
       <a href="#chart" style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 10px; font-weight: 500; letter-spacing: 0.16em; color: #8E8E96;">CHART</a>
     </div>
+
+    <p style="margin: 0; padding-top: 22px; border-top: 1px solid #1A1A1E; font-size: 12px; line-height: 1.6; color: #6E6E78;">
+      $SCAT is a community meme coin. It has no intrinsic value, no roadmap of promises, and no expectation of financial return. Not affiliated with, endorsed by, or connected to Solana Labs, Solana Mobile or Seeker. Crypto is risky — only bring what you can afford to lose, and always do your own research.
+    </p>
   </footer>
 </div>
 </x-dc>
-<script data-dc-script data-props='{"accent":{"editor":"color","default":"#14F195","options":["#14F195","#00FFA3","#FFFFFF","#C5F955"],"section":"Brand"},"$preview":{"width":390,"height":1240}}'>
+<script data-dc-script data-props='{"accent":{"editor":"color","default":"#14F195","options":["#14F195","#00FFA3","#FFFFFF","#C5F955"],"section":"Brand"},"$preview":{"width":390,"height":3280}}'>
 class Component extends DCLogic {
   renderVals() {
     return { accent: this.props.accent ?? '#14F195' };

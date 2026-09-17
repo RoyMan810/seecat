@@ -4,7 +4,10 @@ Website design for **SCAT** ($SCAT), a Solana cat-mascot token whose holders are
 rewards in $SOL.
 
 - **Design language:** Solana Mobile / Seeker — true black, monochrome, one green accent
-- **Block structure:** raycatsolana.com — a single screen: ticker, nav, hero, footer
+- **Voice and content pattern:** Seeker Reviewer's Guide — a feature name, a one-line
+  promise, then bold-lead claims ("Paid to your wallet. Real $SOL — not points.")
+- **Block rhythm:** raycatsolana.com, loosely — ticker, nav, hero with a CA field and
+  status pills, then our own sections rather than a copy of theirs
 
 The design lives as artboards in `design/`, authored in the `.dc.html` artboard format and
 laid out by `design/canvas.json`.
@@ -13,8 +16,8 @@ laid out by `design/canvas.json`.
 
 | File | Frame | Contents |
 | --- | --- | --- |
-| `Main.dc.html` | 1440 × 980 | Whole page: marquee ticker, nav, hero, legal footer |
-| `Mobile.dc.html` | 390 × 1240 | Same page stacked for phone |
+| `Main.dc.html` | 1440 × 2274 | Whole desktop page |
+| `Mobile.dc.html` | 390 × 3280 | Same page stacked for phone |
 | `Foundations.dc.html` | 1100 × 620 | Palette, type scale, controls, hex mark |
 
 ## Page blocks
@@ -22,10 +25,15 @@ laid out by `design/canvas.json`.
 Mirrors the reference one-for-one:
 
 1. **Marquee ticker** — mono uppercase claims separated by green diamonds
-2. **Nav** — hex `S` mark + `SCAT` wordmark, links: X / CHART / BUY
-3. **Hero** — meta row, `$SCAT` display wordmark, "The Solana cat that pays rent in $SOL.",
-   mascot paragraph, CA field with COPY, two CTAs, three status pills, mascot at right
-4. **Footer** — risk disclaimer, social links
+2. **Nav** — hex `S` mark + `SCAT` wordmark, section links, outlined BUY button
+3. **Hero** — meta row, `$SCAT` display wordmark, "The cat that rides in your Seeker.",
+   mascot paragraph, CA field with COPY, two CTAs, three status pills; mascot at right
+   inside a double hexagon frame with a single green glow
+4. **What you get** — three cards in the Reviewer's Guide pattern: rewards in $SOL,
+   your keys stay yours, built on Solana
+5. **How it works** — 01 Buy / 02 Hold / 03 Collect, on accent-to-grey rules
+6. **Stat band** — rewards paid, holders, supply, reward token
+7. **Footer** — mark, socials, risk and non-affiliation disclaimer
 
 ## Color tokens
 
@@ -62,7 +70,13 @@ Radii: 10px controls, 999px pills. Touch targets ≥ 44px.
 
 - **Mascot art** is a labelled placeholder (392 × 430, transparent PNG) — the real file has
   not been supplied in a form the build can read.
-- **Seeker press kit** has not been applied: the Drive folder is shared but its contents
-  cannot be enumerated with the available tooling, so the palette above is the Solana
-  Mobile direction plus the verified Solana brand green, not measured press-kit values.
-- Launch facts are bracketed placeholders: contract address, socials handle.
+- **Palette is not measured from the press kit.** The supplied Drive file is the Seeker
+  *Reviewer's Guide* — mission, features (Seed Vault, Seeker ID, Genesis Token, SKR, dApp
+  Store, TEEPIN), hardware and quick-start. It carries no hex values or typefaces. Its
+  content and voice are reflected in the copy; the colours above remain the Solana Mobile
+  direction plus the verified Solana brand green. A brand/style-guide file with colour and
+  type specs would let these be exact.
+- Launch facts are bracketed placeholders: contract address, supply, holders, rewards
+  paid, socials handle.
+- Claims are deliberately narrow: no Seeker Season, dApp Store or Seed Vault *integration*
+  is asserted anywhere — only that a Seeker owner's keys live in their own Seed Vault.

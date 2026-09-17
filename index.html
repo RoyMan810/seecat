@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SEECAT — the cat that rides in your Seeker</title>
+<meta name="description" content="$SEECAT is a Solana cat mascot. Hold it in the wallet you already carry and collect $SKR — no staking screens, no lock-ups, no homework.">
+<meta name="theme-color" content="#0C0C0E">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="SEECAT — the cat that rides in your Seeker">
+<meta property="og:description" content="Hold $SEECAT in the wallet you already carry and collect $SKR. No staking screens, no lock-ups, no homework.">
+<meta property="og:image" content="assets/img/og.png">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body id="top">
+
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- Ticker: decorative repetition of claims made in the content below -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee__track">
+    <span class="marquee__item">Built on Solana</span>
+    <span class="marquee__sep">◆</span>
+    <span class="marquee__item">Nine lives, one chart</span>
+    <span class="marquee__sep">◆</span>
+    <span class="marquee__item">Hold the cat</span>
+    <span class="marquee__sep">◆</span>
+    <span class="marquee__item marquee__item--hot">$SEECAT</span>
+    <span class="marquee__sep">◆</span>
+    <span class="marquee__item">Rewards paid in $SKR</span>
+    <span class="marquee__sep">◆</span>
+    <span class="marquee__item">Keys stay yours</span>
+    <span class="marquee__sep">◆</span>
+  </div>
+  <div class="marquee__track">
+    <span class="marquee__item">Built on Solana</span>
+    <span class="marquee__sep">◆</span>
+    <span class="marquee__item">Nine lives, one chart</span>
+    <span class="marquee__sep">◆</span>
+    <span class="marquee__item">Hold the cat</span>
+    <span class="marquee__sep">◆</span>
+    <span class="marquee__item marquee__item--hot">$SEECAT</span>
+    <span class="marquee__sep">◆</span>
+    <span class="marquee__item">Rewards paid in $SKR</span>
+    <span class="marquee__sep">◆</span>
+    <span class="marquee__item">Keys stay yours</span>
+    <span class="marquee__sep">◆</span>
+  </div>
+</div>
+
+<header class="nav">
+  <div class="nav__inner container">
+    <a class="brand" href="#top" aria-label="SEECAT, home">
+      <svg class="brand__mark" viewBox="0 0 26 26" fill="none" aria-hidden="true">
+        <path d="M4 8.5 L13 3.5 L22 8.5 L22 17.5 L13 22.5 L4 17.5 Z" stroke="#3A3A40" stroke-width="1.2"/>
+        <path d="M13 8 L13 18 M9.5 10.5 L16.5 15.5 M16.5 10.5 L9.5 15.5" stroke="#FFFFFF" stroke-width="1.4" stroke-linecap="round"/>
+      </svg>
+      <span class="brand__word">SEECAT</span>
+    </a>
+
+    <nav class="nav__links" id="nav-links" aria-label="Main">
+      <a class="nav__link" href="#how">How it works</a>
+      <a class="nav__link" href="#what">What you get</a>
+      <a class="nav__link" href="#community">Community</a>
+      <a class="btn btn--ghost" href="#chart">Chart</a>
+      <a class="btn btn--solid" href="#buy">Buy $SEECAT</a>
+    </nav>
+
+    <button class="nav__toggle" type="button" id="nav-toggle"
+            aria-expanded="false" aria-controls="nav-links" aria-label="Open menu">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+           stroke-width="2" stroke-linecap="round" aria-hidden="true">
+        <path d="M4 8h16"/><path d="M4 16h16"/>
+      </svg>
+    </button>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ===================== Hero ===================== -->
+  <section class="hero">
+    <div class="hero__inner container">
+
+      <div class="hero__copy">
+        <div class="meta">
+          <span class="meta__live">LIVE</span>
+          <span class="meta__sep" aria-hidden="true">◆</span>
+          <span class="label">Solana</span>
+          <span class="meta__sep" aria-hidden="true">◆</span>
+          <span class="label">Self-custody</span>
+          <span class="meta__sep" aria-hidden="true">◆</span>
+          <span class="label">$SKR rewards</span>
+        </div>
+
+        <h1 class="wordmark">
+          <span class="wordmark__sigil">$</span><span class="wordmark__name">SEECAT</span>
+        </h1>
+
+        <p class="subhead">
+          <span>The cat that rides</span>
+          <span>in your <span class="gradient-text">Seeker</span>.</span>
+        </p>
+
+        <p class="lede">
+          <b>Solana Cat Mascot.</b> Showed up in a cap, pocketed a Seeker, and started handing
+          out rewards. Hold $SEECAT in the wallet you already carry and collect $SKR — no
+          staking screens, no lock-ups, no homework.
+        </p>
+
+        <div class="ca">
+          <label class="ca__label" for="ca-field">CA</label>
+          <input class="ca__input" id="ca-field" type="text" readonly
+                 value="[YOUR CONTRACT ADDRESS]" aria-label="Contract address">
+          <button class="ca__copy" type="button" data-copy="#ca-field">COPY</button>
+        </div>
+
+        <div class="cta-row">
+          <a class="btn btn--solid" href="#buy" id="buy">
+            Buy $SEECAT
+            <span class="btn__badge" aria-hidden="true">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                   stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 12h13"/><path d="M12 5l7 7-7 7"/>
+              </svg>
+            </span>
+          </a>
+          <a class="btn btn--ghost" href="#community" id="community">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M18.9 2H22l-6.8 7.8L22.8 22h-6.5l-4.6-6.3L5.9 22H2.8l7.2-8.2L2 2h6.7l4.3 5.9L18.9 2zm-1.1 18h1.7L7.3 3.8H5.5L17.8 20z"/>
+            </svg>
+            @SEECAT_SOLANA
+          </a>
+        </div>
+
+        <div class="dots">
+          <span class="dot" style="--bullet: var(--s4)">Rewards in $SKR</span>
+          <span class="dot" style="--bullet: var(--s3)">Straight to holders</span>
+          <span class="dot" style="--bullet: var(--s2)">Nothing to stake</span>
+        </div>
+      </div>
+
+      <div class="hero__figure">
+        <img class="hero__coin" src="assets/img/coin.png" alt="" width="984" height="984" aria-hidden="true">
+        <img class="hero__mascot" src="assets/img/mascot.png" width="1020" height="1014"
+             alt="SEECAT, a tabby cat in a black cap and tee, holding a Seeker phone and standing on an $SKR coin">
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===================== How it works ===================== -->
+  <section class="section" id="how">
+    <div class="container">
+      <div class="section__head">
+        <div class="section__titles">
+          <span class="label">How it works</span>
+          <h2 class="section__h">Three steps, one cat.</h2>
+        </div>
+        <a class="btn btn--solid" href="#buy">
+          Start holding
+          <span class="btn__badge" aria-hidden="true">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                 stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h13"/><path d="M12 5l7 7-7 7"/>
+            </svg>
+          </span>
+        </a>
+      </div>
+
+      <ol class="steps" style="list-style: none; margin: 0; padding: 0;">
+        <li class="step" style="--rule: var(--s4)">
+          <span class="step__n">01</span>
+          <h3 class="step__h">Buy $SEECAT</h3>
+          <p>Paste the contract into any Solana DEX or the wallet you already use, check it twice, swap.</p>
+        </li>
+        <li class="step" style="--rule: var(--s3)">
+          <span class="step__n">02</span>
+          <h3 class="step__h">Hold the cat</h3>
+          <p>Leave him where he lands. Holding is the entire strategy and there is nothing to sign.</p>
+        </li>
+        <li class="step" style="--rule: var(--s1)">
+          <span class="step__n" style="color: var(--s2)">03</span>
+          <h3 class="step__h">Collect $SKR</h3>
+          <p>Rewards arrive on their own. Check the wallet, or don't — they land either way.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ===================== What holding gets you ===================== -->
+  <section class="section" id="what">
+    <div class="container">
+      <div class="section__head">
+        <div class="section__titles">
+          <span class="label">SEECAT token</span>
+          <h2 class="section__h">What holding gets you.</h2>
+        </div>
+        <p class="section__aside">
+          There is no protocol to understand here. A cat, a wallet you already own, and
+          rewards that turn up by themselves.
+        </p>
+      </div>
+
+      <div class="cards">
+        <article class="card" style="--icon: var(--s4)">
+          <span class="card__n" aria-hidden="true">01</span>
+          <span class="card__icon">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                 stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 2v20"/><path d="M17 6.5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/>
+            </svg>
+          </span>
+          <h3 class="card__h">Rewards in $SKR</h3>
+          <p><b>Paid to your wallet.</b> Real $SKR — not points, not a second token you have to sell first.</p>
+          <p><b>Nothing to claim.</b> No weekly ritual, no dashboard to babysit.</p>
+        </article>
+
+        <article class="card" style="--icon: var(--s3)">
+          <span class="card__n" aria-hidden="true">02</span>
+          <span class="card__icon">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                 stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="4" y="10" width="16" height="11" rx="2.5"/>
+              <path d="M8 10V7a4 4 0 018 0v3"/><path d="M12 14.5v2.5"/>
+            </svg>
+          </span>
+          <h3 class="card__h">Your keys stay yours</h3>
+          <p><b>Self-custody only.</b> No approvals, no migration, no staking contract to trust.</p>
+          <p><b>On a Seeker, that means the Seed Vault.</b> Your keys never leave the hardware.</p>
+        </article>
+
+        <article class="card" style="--icon: var(--s2)">
+          <span class="card__n" aria-hidden="true">03</span>
+          <span class="card__icon">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                 stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M13 2L4.5 13.5H11l-1 8.5L18.5 10H12l1-8z"/>
+            </svg>
+          </span>
+          <h3 class="card__h">Built on Solana</h3>
+          <p><b>Sub-second settlement.</b> Fees small enough to ignore entirely.</p>
+          <p><b>A mobile-first crowd.</b> Made for the people already carrying the phone.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== Stat band ===================== -->
+  <section class="stats" id="chart" aria-label="Token stats">
+    <div class="stat">
+      <span class="label">Rewards paid</span>
+      <span class="stat__v">[—] SKR</span>
+    </div>
+    <div class="stat">
+      <span class="label">Holders</span>
+      <span class="stat__v">[—]</span>
+    </div>
+    <div class="stat">
+      <span class="label">Total supply</span>
+      <span class="stat__v">[—]</span>
+    </div>
+    <div class="stat">
+      <span class="label">Reward token</span>
+      <span class="stat__v gradient-text">$SKR</span>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__top">
+      <nav class="footer__nav" aria-label="Footer">
+        <a href="#buy">Buy</a>
+        <a href="#chart">Chart</a>
+        <a href="#community">Community</a>
+      </nav>
+
+      <div class="footer__lockup">
+        <a class="brand" href="#top" aria-label="SEECAT, back to top">
+          <svg class="brand__mark" viewBox="0 0 26 26" fill="none" aria-hidden="true">
+            <path d="M4 8.5 L13 3.5 L22 8.5 L22 17.5 L13 22.5 L4 17.5 Z" stroke="#3A3A40" stroke-width="1.2"/>
+            <path d="M13 8 L13 18 M9.5 10.5 L16.5 15.5 M16.5 10.5 L9.5 15.5" stroke="#FFFFFF" stroke-width="1.4" stroke-linecap="round"/>
+          </svg>
+          <span class="brand__word">SEECAT</span>
+        </a>
+        <a class="footer__handle" href="#community">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M18.9 2H22l-6.8 7.8L22.8 22h-6.5l-4.6-6.3L5.9 22H2.8l7.2-8.2L2 2h6.7l4.3 5.9L18.9 2zm-1.1 18h1.7L7.3 3.8H5.5L17.8 20z"/>
+          </svg>
+          @SEECAT_SOLANA
+        </a>
+      </div>
+    </div>
+
+    <div class="footer__legal">
+      <p>
+        $SEECAT is a community meme coin. It has no intrinsic value, no roadmap of promises,
+        and no expectation of financial return. Not affiliated with, endorsed by, or connected
+        to Solana Labs, Solana Mobile or Seeker. Crypto is risky — only bring what you can
+        afford to lose, and always do your own research.
+      </p>
+      <span class="footer__copy">© 2026 SEECAT</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/app.js" defer></script>
+</body>
+</html>

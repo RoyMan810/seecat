@@ -9,8 +9,49 @@ rewards in $SKR.
 - **Block rhythm:** raycatsolana.com, loosely — ticker, nav, hero with a CA field and
   status pills, then our own sections rather than a copy of theirs
 
-The design lives as artboards in `design/`, authored in the `.dc.html` artboard format and
-laid out by `design/canvas.json`.
+There are two things here:
+
+- **`index.html` + `assets/`** — the actual site, built from the design system below.
+- **`design/`** — the artboards it came from, in the `.dc.html` format, laid out by
+  `design/canvas.json`.
+
+## Running the site
+
+No build step, no dependencies. Open `index.html`, or serve the folder:
+
+```sh
+python3 -m http.server 8000     # then http://localhost:8000
+```
+
+To publish: Settings -> Pages -> deploy from `main` / root. Every path is relative, so it
+works from a subdirectory too.
+
+### What is wired up
+
+| | |
+| --- | --- |
+| Marquee | CSS animation, duplicated track for a seamless loop, stops under `prefers-reduced-motion` |
+| Mobile nav | `aria-expanded` toggle, closes on link pick and on Escape, restored on resize |
+| Copy button | Clipboard API with a selection fallback for non-secure origins, `COPIED` for 1.8s |
+| Focus | `:focus-visible` rings on every link, button and input |
+| Images | `width`/`height` set to reserve space; the coin is `aria-hidden`, the mascot carries the alt text |
+
+Verified in Chromium at 390, 768, 900, 1440 and 1920px: no horizontal overflow at any
+width, and no console errors.
+
+### Responsive behaviour
+
+The artboards are fixed at 1440 and 390; the site is fluid between them.
+
+- Type scales with `clamp()` — the wordmark runs 62 -> 130px.
+- The hero goes two-column at **1080px**, not at the nav breakpoint: below that there is not
+  enough width for the 700px copy column beside the figure without the coin crowding the
+  wordmark.
+- The mascot and coin scale as one unit. The figure carries `--fig-w`, and the coin is
+  `137.25%` of it (700 / 510 from the artboard), so the cat's feet always land just inside
+  the coin's lower face — 56px at desktop, 36px at phone width.
+- Stacked layouts reserve `0.267 x --fig-w` above the figure, because the coin overhangs its
+  own box by 26.9% and would otherwise ride up over the status dots.
 
 ## Artboards
 
@@ -19,6 +60,9 @@ laid out by `design/canvas.json`.
 | `Main.dc.html` | 1440 × 2440 | Whole desktop page |
 | `Mobile.dc.html` | 390 × 3410 | Same page stacked for phone |
 | `Foundations.dc.html` | 1180 × 720 | Palette, type scale, controls |
+
+The site's `assets/css/styles.css` carries the same tokens as CSS custom properties, so the
+artboards and the build cannot drift apart silently.
 
 Source files: `SCAT.png` (mascot, 1024², transparent), `Token_Seeker_3D.png` (the $SKR coin
 in use, 1024², transparent), `Token_Seeker.png` (the earlier flat coin, 320², superseded)

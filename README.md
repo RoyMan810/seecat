@@ -65,9 +65,26 @@ and a `WebSite` JSON-LD block.
 `canonical`, `og:url` and the JSON-LD `url` all point at **https://seecatsol.com/**, the
 apex domain in `CNAME`. Keep the three in step if the domain ever changes.
 
-**One thing left:** the favicon and preview banner are hosted on i.ibb.co, not in the repo
-(`SEECAT.png` and `SEECAT-link.jpg`). That works, but an image host going down takes the
-favicon and every link preview with it — worth vendoring both into `assets/img/`.
+### Favicon
+
+Built from the mascot's own head rather than a shrunken illustration, because a favicon is
+rendered at 16–48px and fine detail turns to mud there. `assets/img/favicon-*.png` and
+`favicon.ico` are cut from `assets/img/mascot.png`: the head cropped to its alpha bounding
+box, colour and contrast lifted ~10% so the tabby markings survive the downscale, fitted to
+74% of the canvas on a cream `#FDF3E7` disc — the sunset's last stop, on-brand rather than
+plain white — with a `#26262B` ring so the disc still has an edge on a light tab bar. The
+circular mask also crops out the phone the cat is holding, which at this size was noise.
+
+`apple-touch-icon.png` is full-bleed with no disc and no transparency: iOS ignores alpha and
+applies its own rounding.
+
+**48px and 32px read clearly as a cat in a cap. 16px is a dark blob** — that is the ceiling
+for a photographic head at that size, whatever the crop. In practice it matters less than it
+looks: hidpi displays request the 32px file for a 16px slot.
+
+**Still external:** the preview banner is on i.ibb.co (`SEECAT-link.jpg`), not in the repo.
+`og:image` has to be an absolute URL, so vendoring it means serving it from
+`https://seecatsol.com/assets/img/...` and updating both `og:image` and `twitter:image`.
 
 `og:image` must stay an **absolute** URL; scrapers do not resolve relative paths.
 

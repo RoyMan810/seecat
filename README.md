@@ -27,8 +27,9 @@ Source files: `SCAT.png` (mascot, 1024², transparent) and `solanamobile.png`
 
 Takes the reference's rhythm in blocks 1–3, then goes its own way:
 
-1. **Marquee ticker** — mono uppercase claims separated by green diamonds
-2. **Nav** — hex `S` mark + `SCAT` wordmark, section links, outlined BUY button
+1. **Marquee ticker** — uppercase claims separated by dim diamonds, `$SCAT` in peach
+2. **Nav** — hex mark + letterspaced `SCAT` wordmark, section links, dark `Chart` pill
+   and white `Buy $SCAT` pill
 3. **Hero** — meta row, `$SCAT` display wordmark, "The cat that rides in your Seeker.",
    mascot paragraph, CA field with COPY, two CTAs, three status pills; mascot at right
    inside a double hexagon frame with a single green glow

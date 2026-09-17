@@ -1,11 +1,11 @@
-# SCAT — site design
+# SEECAT — site design
 
-Website design for **SCAT** ($SCAT), a Solana cat-mascot token whose holders are paid
-rewards in $SOL.
+Website design for **SEECAT** ($SEECAT), a Solana cat-mascot token whose holders are paid
+rewards in $SCR.
 
 - **Palette:** sampled pixel-by-pixel from `design/solanamobile.png`, not guessed
 - **Voice and content pattern:** Seeker Reviewer's Guide — a feature name, a one-line
-  promise, then bold-lead claims ("Paid to your wallet. Real $SOL — not points.")
+  promise, then bold-lead claims ("Paid to your wallet. Real $SCR — not points.")
 - **Block rhythm:** raycatsolana.com, loosely — ticker, nav, hero with a CA field and
   status pills, then our own sections rather than a copy of theirs
 
@@ -27,13 +27,13 @@ Source files: `SCAT.png` (mascot, 1024², transparent) and `solanamobile.png`
 
 Takes the reference's rhythm in blocks 1–3, then goes its own way:
 
-1. **Marquee ticker** — uppercase claims separated by dim diamonds, `$SCAT` in peach
-2. **Nav** — hex mark + letterspaced `SCAT` wordmark, section links, dark `Chart` pill
-   and white `Buy $SCAT` pill
-3. **Hero** — meta row, `$SCAT` display wordmark, "The cat that rides in your Seeker.",
+1. **Marquee ticker** — uppercase claims separated by dim diamonds, `$SEECAT` in peach
+2. **Nav** — hex mark + letterspaced `SEECAT` wordmark, section links, dark `Chart` pill
+   and white `Buy $SEECAT` pill
+3. **Hero** — meta row, `$SEECAT` display wordmark, "The cat that rides in your Seeker.",
    mascot paragraph, CA field with COPY, two CTAs, three status pills; mascot at right
    inside a double hexagon frame with a single green glow
-4. **What you get** — three cards in the Reviewer's Guide pattern: rewards in $SOL,
+4. **What you get** — three cards in the Reviewer's Guide pattern: rewards in $SCR,
    your keys stay yours, built on Solana
 5. **How it works** — 01 Buy / 02 Hold / 03 Collect, on accent-to-grey rules
 6. **Stat band** — rewards paid, holders, supply, reward token
@@ -67,7 +67,7 @@ Sampled down the footer band of the reference at `x=120`, `y=8700…8970`:
 
 violet → magenta → coral → orange → peach → cream. Used two ways only: as radial blooms
 centred behind the mascot (warm, with violet riding above it), and clipped into the `$` of
-`$SCAT`, the word "Seeker" and `$SOL`. Step accents on the how-it-works rules take single
+`$SEECAT`, the word "Seeker" and `$SCR`. Step accents on the how-it-works rules take single
 stops from it.
 
 Three borrowings were cut on review: the full-bleed band above the footer, the hairline
@@ -79,7 +79,7 @@ structure with nothing to hold.
 
 One family, as the reference does:
 
-- **Manrope 800** — `$SCAT` at 136px, `-0.055em`
+- **Manrope 800** — `$SEECAT` at 130px, `-0.055em` (mobile 66px)
 - **Manrope 600** — subhead 38px; footer nav words 34px
 - **Manrope 700** — section headings 50 / 44 / 22px; bold caption leads
 - **Manrope 400** — body 16 / 14px at 1.65
@@ -109,3 +109,9 @@ Radii: 999px everywhere (pills, field, COPY), 8–10px on swatches. Touch target
   paid, socials handle.
 - Claims are deliberately narrow: no Seeker Season, dApp Store or Seed Vault *integration*
   is asserted anywhere — only that a Seeker owner's keys live in their own Seed Vault.
+
+## Naming
+
+The token is **$SEECAT**, rewards are paid in **$SCR**. Note that the Seeker Reviewer's
+Guide names **SKR** as the native asset of the Solana Mobile economy — a different ticker,
+one letter apart. `$SCR` here is used exactly as specified and is not SKR.

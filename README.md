@@ -17,11 +17,12 @@ laid out by `design/canvas.json`.
 | File | Frame | Contents |
 | --- | --- | --- |
 | `Main.dc.html` | 1440 × 2440 | Whole desktop page |
-| `Mobile.dc.html` | 390 × 3360 | Same page stacked for phone |
+| `Mobile.dc.html` | 390 × 3410 | Same page stacked for phone |
 | `Foundations.dc.html` | 1180 × 720 | Palette, type scale, controls |
 
-Source files: `SCAT.png` (mascot, 1024², transparent), `Token_Seeker.png` (the $SKR coin,
-320², transparent) and `solanamobile.png` (full-page reference screenshot, 1905 × 9535).
+Source files: `SCAT.png` (mascot, 1024², transparent), `Token_Seeker_3D.png` (the $SKR coin
+in use, 1024², transparent), `Token_Seeker.png` (the earlier flat coin, 320², superseded)
+and `solanamobile.png` (full-page reference screenshot, 1905 × 9535).
 
 ## Page blocks
 
@@ -33,9 +34,9 @@ Takes the reference's rhythm in blocks 1–3, then goes its own way:
 3. **Hero** — meta row, `$SEECAT` display wordmark, "The cat that rides in your Seeker.",
    mascot paragraph, CA field with COPY, two CTAs, three status pills; mascot at right,
    standing against the $SKR coin and centred in two sunset blooms
-4. **What you get** — three cards in the Reviewer's Guide pattern: rewards in $SKR,
-   your keys stay yours, built on Solana
-5. **How it works** — 01 Buy / 02 Hold / 03 Collect, on accent-to-grey rules
+4. **How it works** — 01 Buy / 02 Hold / 03 Collect, on accent-to-grey rules
+5. **What holding gets you** — three cards in the Reviewer's Guide pattern: rewards in
+   $SKR, your keys stay yours, built on Solana
 6. **Stat band** — rewards paid, holders, supply, reward token
 7. **Footer** — three large nav words, the mark with the X handle, then a rule and the
    risk and non-affiliation disclaimer
@@ -101,8 +102,6 @@ Radii: 999px everywhere (pills, field, COPY), 8–10px on swatches. Touch target
 
 - **The Seeker Reviewer's Guide carries no colour or type spec.** It supplied the voice and
   the caption pattern; every colour above comes from the screenshot instead.
-- `Token_Seeker.png` is only 320px, so the coin is upscaled to render at 560px behind the
-  mascot and its rim is a little soft. A larger original would fix that.
 - The reference's display face is a wide geometric grotesque that is not a Google font.
   Manrope 800 at tight tracking is the closest freely available stand-in; swap in the real
   face if the press kit ships one.

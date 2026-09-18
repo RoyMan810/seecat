@@ -28,7 +28,9 @@ rsync -av --delete index.html assets/ user@seecatsol.com:/var/www/seecatsol.com/
 ```
 
 `design/`, `README.md` and the repo's other files are not part of the site and do not need
-to be uploaded.
+to be uploaded — except `scripts/refresh-stats.py`, which runs on the server from cron
+and writes `data/stats.json`. Put it somewhere `rsync --delete` does not reach, such as
+`/var/www/seecatsol.com/bin/`, and see **Setting up the snapshot** below.
 
 **Serve it over HTTPS.** Not just for the padlock: the COPY button on the contract field
 uses the Clipboard API, which browsers only expose in a secure context. Over plain HTTP it
@@ -61,7 +63,7 @@ python3 -m http.server 8000     # then http://localhost:8000
 | Images | `width`/`height` set to reserve space; the coin is `aria-hidden`, the mascot carries the alt text |
 | Buy buttons | All four (nav, hero, how-it-works, footer) open `app.jtx.com/?mint=<CA>` in a new tab |
 | Socials | X and Telegram, both `@SeeCat_sol` — in the hero CTA row and the footer lockup, and both in the JSON-LD `sameAs` |
-| Stat band | `Rewards paid` from StonkFun's API, `Holders` and `Total supply` from a Solana RPC |
+| Stat band | `Rewards paid` from StonkFun's API in the browser; `Holders` and `Total supply` from a cron-written `data/stats.json` |
 
 ### Live stats
 
@@ -72,17 +74,14 @@ independently so one failing never blanks the other. Neither needs a key.
 | --- | --- | --- |
 | Rewards paid | StonkFun `GET /tokens/{mint}/rewards` | `data.rewards.distributedTokens` |
 | its unit | same | `data.quote.symbol` |
-| Holders | Solana `getProgramAccounts` | count of non-zero balances |
-| Total supply | Solana `getTokenSupply` | `value.uiAmount` |
+| Holders | our own `data/stats.json` | `holders` |
+| Total supply | same | `supply` |
 | Reward token | — | static `$SKR` |
-
-The mint, the API base and the RPC URL are the first four constants in that file.
-Nothing else in the page knows about any of them.
 
 **Every tile keeps its `[—]` as the markup default**, so the band is correct before
 anything lands and stays correct if nothing does. Each read fails on its own and
-writes one line to the console: an `{error:{code}}` body, a non-2xx status, a JSON-RPC
-error, a timeout, an offline browser, a CORS refusal, or an empty account list.
+writes one line to the console: an `{error:{code}}` body, a non-2xx status, a missing
+or stale snapshot, malformed JSON, a timeout, an offline browser, or a CORS refusal.
 
 #### Why holders does not come from the API
 
@@ -94,9 +93,20 @@ afterwards means holders above StonkFun's ~$20 eligibility threshold — not eve
 holding the token. Rendering it would have put "Holders: 0" on a page with ten of
 them.
 
-So holders are counted on chain instead: every Token-2022 account whose first 32
-bytes are this mint, minus the ones emptied to a zero balance. That matches what
-Solscan reports, the pool's own vault included.
+#### Why the chain reads are not in the browser
+
+They were, and it did not work. **Free public Solana RPCs refuse browser traffic**,
+measured on the deployed page:
+
+| Endpoint | From a browser |
+| --- | --- |
+| `api.mainnet-beta.solana.com` | `403` — Solana Labs' own, explicitly not for production |
+| `solana-rpc.publicnode.com` | `403` |
+| `solana.drpc.org` | `400`, even on a plain `getTokenSupply` — it wants a key |
+
+They do not refuse *servers*. So `scripts/refresh-stats.py` makes those two calls from
+cron and writes the answers to a file the page reads off its own origin: no CORS, no
+per-visitor rate limit, and no cost that grows with the holder count.
 
 ```
 getProgramAccounts TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb
@@ -107,34 +117,48 @@ getProgramAccounts TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb
 Every LaunchLab mint is created by `initialize_with_token2022`, so the accounts live
 under Token-2022 rather than classic SPL. The `dataSlice` asks for the 8-byte balance
 alone: without it the call returns each account in full, which is nothing at ten
-holders and megabytes at twenty thousand.
+holders and megabytes at twenty thousand. Holders are that set minus the accounts
+emptied to a zero balance, which matches what Solscan reports, the pool's own vault
+included.
 
-#### Which RPC, and what happens when it says no
+#### Setting up the snapshot
 
-`RPCS` is a list, walked in order until one answers. Free providers differ in what
-they allow, so a refusal is never cached against an endpoint — only a success is, to
-keep the next call on what already worked.
+The script needs `python3` and nothing else. It takes one argument, the file to
+write:
 
-**`api.mainnet-beta.solana.com` is deliberately not in that list.** It answers `403
-Access forbidden` to a browser: it is Solana Labs' own endpoint and is explicitly not
-meant for production traffic. Do not put it back.
+```sh
+./scripts/refresh-stats.py /var/www/seecatsol.com/data/stats.json
+```
 
-`getProgramAccounts` is the expensive one and plenty of free providers disable it. When
-no endpoint serves it, the count falls back to `getTokenLargestAccounts`, which every
-provider serves — but it returns at most twenty accounts. Under twenty, that *is* the
-whole holder list and the number is exact. At twenty it means the tail is hidden, so
-the tile stays `[—]` and the console says so rather than showing a number capped at 20.
+```cron
+*/10 * * * * /var/www/seecatsol.com/bin/refresh-stats.py /var/www/seecatsol.com/data/stats.json
+```
 
-So the holder count is exact or absent, never wrong — but **it stops working past
-twenty holders on a keyless RPC that blocks `getProgramAccounts`.** At that point:
-a free Helius key, or move both chain reads behind our own server on a cache.
+**The output must live outside `assets/`.** The deploy rsyncs `assets/` with
+`--delete`, so a generated file in there would be wiped on every deploy. `data/` next
+to it is not synced and survives.
+
+It writes to a temp file and renames, so a visitor never reads a half-written file,
+and on any failure it writes nothing and exits non-zero — a bad run leaves the last
+good numbers in place instead of blanking the band. It also refuses to write a zero
+holder count, which would mean the filter matched nothing rather than a token nobody
+holds.
+
+If the free endpoints ever refuse the server too, set `SOLANA_RPC` to a keyed URL and
+the script uses that one instead. The key lives in the environment, never in the file.
+
+The page treats a snapshot older than **six hours** as no snapshot: cron has stopped,
+and placeholders are better than numbers that have quietly been wrong for days. The
+console names the `generatedAt` it found. Until the cron exists at all, the page says
+so once and the two tiles stay `[—]` — `Rewards paid` is unaffected either way,
+because that one really does work from the browser.
 
 #### CORS, now measured
 
 Measured on the deployed page on 2026-09-18: **StonkFun's API does send
 `Access-Control-Allow-Origin`** — the rewards read went through from the browser with
-no CORS error. Should that ever
-change, the console says *"request failed, most likely CORS"*, and the fix is to proxy
+no CORS error, which is why that one call stayed client-side. Should it ever change,
+the console says *"request failed, most likely CORS"*, and the fix is to proxy
 the read through our own server, which also lets us cache it:
 
 ```nginx
@@ -146,7 +170,7 @@ location = /api/rewards {
 ```
 
 Then change `API` in `stats.js` to `""` and the path to `/api/rewards`. Nothing else
-moves. The same shape works for the RPC.
+moves.
 
 StonkFun's rate limit is 300/min per IP and its reads are CDN-cached, so one fetch per
 visitor costs nothing there. Errors come back as `{ error: { code, message } }`;

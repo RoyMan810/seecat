@@ -61,64 +61,83 @@ python3 -m http.server 8000     # then http://localhost:8000
 | Images | `width`/`height` set to reserve space; the coin is `aria-hidden`, the mascot carries the alt text |
 | Buy buttons | All four (nav, hero, how-it-works, footer) open `app.jtx.com/?mint=<CA>` in a new tab |
 | Socials | X and Telegram, both `@SeeCat_sol` — in the hero CTA row and the footer lockup, and both in the JSON-LD `sameAs` |
-| Stat band | `Rewards paid` and `Holders` read StonkFun's public API at load; the rest is static |
+| Stat band | `Rewards paid` from StonkFun's API, `Holders` and `Total supply` from a Solana RPC |
 
 ### Live stats
 
-`assets/js/stats.js` fills two tiles in the stat band from StonkFun's public API —
-one read, no key, nothing to sign up for:
+`assets/js/stats.js` fills three of the four tiles from two sources, read
+independently so one failing never blanks the other. Neither needs a key.
 
-```
-GET https://www.stonkfun.xyz/api/public/v1/tokens/<mint>/rewards
-```
+| Tile | Source | Field |
+| --- | --- | --- |
+| Rewards paid | StonkFun `GET /tokens/{mint}/rewards` | `data.rewards.distributedTokens` |
+| its unit | same | `data.quote.symbol` |
+| Holders | Solana `getProgramAccounts` | count of non-zero balances |
+| Total supply | Solana `getTokenSupply` | `value.uiAmount` |
+| Reward token | — | static `$SKR` |
 
-| Tile | Field |
-| --- | --- |
-| Rewards paid | `data.rewards.distributedTokens` |
-| its unit | `data.quote.symbol` |
-| Holders | `data.rewards.holderCount` |
-
-The mint and the API base live at the top of that file, and nothing else in the page
-knows about either.
+The mint, the API base and the RPC URL are the first four constants in that file.
+Nothing else in the page knows about any of them.
 
 **Every tile keeps its `[—]` as the markup default**, so the band is correct before
-the fetch lands and stays correct if it never does. Six paths are covered and each
-leaves the placeholder alone: an `{error:{code}}` body, a non-2xx status, a `mode:
-"standard"` answer with a null `rewards` object, a timeout, an offline browser, and a
-CORS refusal. Each writes one line to the console and nothing to the page.
+anything lands and stays correct if nothing does. Each read fails on its own and
+writes one line to the console: an `{error:{code}}` body, a non-2xx status, a JSON-RPC
+error, a timeout, an offline browser, a CORS refusal, or an empty account list.
 
-Two things to know before this goes live:
+#### Why holders does not come from the API
 
-- **CORS is unverified.** The API is documented for `curl`, and whether it sends
-  `Access-Control-Allow-Origin` for a browser on another origin is not stated.
-  Open the deployed page and look at the console: if it says *"request failed, most
-  likely CORS"*, the browser is being refused and the fix is to proxy the read
-  through our own server, which also lets us cache it:
+`rewards.holderCount` looks like the obvious field and is not. Measured against the
+live mint on 2026-09-18: the API answered `holderCount: 0` while Solscan showed 10
+holders, alongside `payoutCount: 0` and no `lastPayoutAt` at all. It counts the
+wallets a *distribution* paid, so it sits at zero until the first payout cycle and
+afterwards means holders above StonkFun's ~$20 eligibility threshold — not everyone
+holding the token. Rendering it would have put "Holders: 0" on a page with ten of
+them.
 
-  ```nginx
-  location = /api/rewards {
-      proxy_pass https://www.stonkfun.xyz/api/public/v1/tokens/<mint>/rewards;
-      proxy_set_header Host www.stonkfun.xyz;
-      proxy_cache_valid 200 60s;
-  }
-  ```
+So holders are counted on chain instead: every Token-2022 account whose first 32
+bytes are this mint, minus the ones emptied to a zero balance. That matches what
+Solscan reports, the pool's own vault included.
 
-  Then change `API` in `stats.js` to `""` and the path to `/api/rewards`. Nothing
-  else moves.
-- **`holderCount` is the reward payload's own count** — holders the distribution
-  pays, which the "Rewards in $SKR" card says is wallets holding at least $20. That
-  is not the same as every wallet holding the token. The tile is labelled just
-  "Holders"; worth deciding whether that is the number you want under that word.
+```
+getProgramAccounts TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb
+  filters:   [{ memcmp: { offset: 0, bytes: <mint> } }]
+  dataSlice: { offset: 64, length: 8 }
+```
 
-**Total supply has no field in this API.** `/tokens/{mint}` carries price, market cap,
-FDV, 24h volume and the launch record but no supply, and `/api/public/total-assets`
-is identity only. Two ways to fill it: a Solana RPC `getTokenSupply` call, or
-`market.fdvUsd / market.priceUsd` from `/tokens/{mint}`, which is the same number by
-definition. Neither is wired up — the tile stays `[—]` until you pick one.
+Every LaunchLab mint is created by `initialize_with_token2022`, so the accounts live
+under Token-2022 rather than classic SPL. The `dataSlice` asks for the 8-byte balance
+alone: without it the call returns each account in full, which is nothing at ten
+holders and megabytes at twenty thousand.
 
-Rate limit is 300/min per IP and reads are CDN-cached, so one fetch per visitor costs
-nothing. Errors come back as `{ error: { code, message } }`; `code` is stable and is
-what the script branches on.
+**This is the part that will not scale forever.** `getProgramAccounts` is expensive,
+public RPCs throttle or disable it, and the response grows with the holder count even
+sliced. It is honest at this size; past a few thousand holders move both chain reads
+behind our own server on a cache, or onto a keyed provider. Until then the tile falls
+back to `[—]` on its own if the RPC refuses, and the console says which call failed.
+
+#### CORS is still unverified
+
+The StonkFun API is documented for `curl`, and whether it sends
+`Access-Control-Allow-Origin` for a browser on another origin is not stated. Public
+Solana RPCs do send it; `api.mainnet-beta.solana.com` is also explicitly not meant for
+production traffic. Open the deployed page and read the console: *"request failed,
+most likely CORS"* means the browser was refused, and the fix is to proxy the read
+through our own server, which also lets us cache it:
+
+```nginx
+location = /api/rewards {
+    proxy_pass https://www.stonkfun.xyz/api/public/v1/tokens/<mint>/rewards;
+    proxy_set_header Host www.stonkfun.xyz;
+    proxy_cache_valid 200 60s;
+}
+```
+
+Then change `API` in `stats.js` to `""` and the path to `/api/rewards`. Nothing else
+moves. The same shape works for the RPC.
+
+StonkFun's rate limit is 300/min per IP and its reads are CDN-cached, so one fetch per
+visitor costs nothing there. Errors come back as `{ error: { code, message } }`;
+`code` is stable and is what the script branches on.
 
 ### SEO and link previews
 

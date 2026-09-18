@@ -61,6 +61,64 @@ python3 -m http.server 8000     # then http://localhost:8000
 | Images | `width`/`height` set to reserve space; the coin is `aria-hidden`, the mascot carries the alt text |
 | Buy buttons | All four (nav, hero, how-it-works, footer) open `app.jtx.com/?mint=<CA>` in a new tab |
 | Socials | X and Telegram, both `@SeeCat_sol` — in the hero CTA row and the footer lockup, and both in the JSON-LD `sameAs` |
+| Stat band | `Rewards paid` and `Holders` read StonkFun's public API at load; the rest is static |
+
+### Live stats
+
+`assets/js/stats.js` fills two tiles in the stat band from StonkFun's public API —
+one read, no key, nothing to sign up for:
+
+```
+GET https://www.stonkfun.xyz/api/public/v1/tokens/<mint>/rewards
+```
+
+| Tile | Field |
+| --- | --- |
+| Rewards paid | `data.rewards.distributedTokens` |
+| its unit | `data.quote.symbol` |
+| Holders | `data.rewards.holderCount` |
+
+The mint and the API base live at the top of that file, and nothing else in the page
+knows about either.
+
+**Every tile keeps its `[—]` as the markup default**, so the band is correct before
+the fetch lands and stays correct if it never does. Six paths are covered and each
+leaves the placeholder alone: an `{error:{code}}` body, a non-2xx status, a `mode:
+"standard"` answer with a null `rewards` object, a timeout, an offline browser, and a
+CORS refusal. Each writes one line to the console and nothing to the page.
+
+Two things to know before this goes live:
+
+- **CORS is unverified.** The API is documented for `curl`, and whether it sends
+  `Access-Control-Allow-Origin` for a browser on another origin is not stated.
+  Open the deployed page and look at the console: if it says *"request failed, most
+  likely CORS"*, the browser is being refused and the fix is to proxy the read
+  through our own server, which also lets us cache it:
+
+  ```nginx
+  location = /api/rewards {
+      proxy_pass https://www.stonkfun.xyz/api/public/v1/tokens/<mint>/rewards;
+      proxy_set_header Host www.stonkfun.xyz;
+      proxy_cache_valid 200 60s;
+  }
+  ```
+
+  Then change `API` in `stats.js` to `""` and the path to `/api/rewards`. Nothing
+  else moves.
+- **`holderCount` is the reward payload's own count** — holders the distribution
+  pays, which the "Rewards in $SKR" card says is wallets holding at least $20. That
+  is not the same as every wallet holding the token. The tile is labelled just
+  "Holders"; worth deciding whether that is the number you want under that word.
+
+**Total supply has no field in this API.** `/tokens/{mint}` carries price, market cap,
+FDV, 24h volume and the launch record but no supply, and `/api/public/total-assets`
+is identity only. Two ways to fill it: a Solana RPC `getTokenSupply` call, or
+`market.fdvUsd / market.priceUsd` from `/tokens/{mint}`, which is the same number by
+definition. Neither is wired up — the tile stays `[—]` until you pick one.
+
+Rate limit is 300/min per IP and reads are CDN-cached, so one fetch per visitor costs
+nothing. Errors come back as `{ error: { code, message } }`; `code` is stable and is
+what the script branches on.
 
 ### SEO and link previews
 

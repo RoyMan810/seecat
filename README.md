@@ -109,20 +109,33 @@ under Token-2022 rather than classic SPL. The `dataSlice` asks for the 8-byte ba
 alone: without it the call returns each account in full, which is nothing at ten
 holders and megabytes at twenty thousand.
 
-**This is the part that will not scale forever.** `getProgramAccounts` is expensive,
-public RPCs throttle or disable it, and the response grows with the holder count even
-sliced. It is honest at this size; past a few thousand holders move both chain reads
-behind our own server on a cache, or onto a keyed provider. Until then the tile falls
-back to `[—]` on its own if the RPC refuses, and the console says which call failed.
+#### Which RPC, and what happens when it says no
 
-#### CORS is still unverified
+`RPCS` is a list, walked in order until one answers. Free providers differ in what
+they allow, so a refusal is never cached against an endpoint — only a success is, to
+keep the next call on what already worked.
 
-The StonkFun API is documented for `curl`, and whether it sends
-`Access-Control-Allow-Origin` for a browser on another origin is not stated. Public
-Solana RPCs do send it; `api.mainnet-beta.solana.com` is also explicitly not meant for
-production traffic. Open the deployed page and read the console: *"request failed,
-most likely CORS"* means the browser was refused, and the fix is to proxy the read
-through our own server, which also lets us cache it:
+**`api.mainnet-beta.solana.com` is deliberately not in that list.** It answers `403
+Access forbidden` to a browser: it is Solana Labs' own endpoint and is explicitly not
+meant for production traffic. Do not put it back.
+
+`getProgramAccounts` is the expensive one and plenty of free providers disable it. When
+no endpoint serves it, the count falls back to `getTokenLargestAccounts`, which every
+provider serves — but it returns at most twenty accounts. Under twenty, that *is* the
+whole holder list and the number is exact. At twenty it means the tail is hidden, so
+the tile stays `[—]` and the console says so rather than showing a number capped at 20.
+
+So the holder count is exact or absent, never wrong — but **it stops working past
+twenty holders on a keyless RPC that blocks `getProgramAccounts`.** At that point:
+a free Helius key, or move both chain reads behind our own server on a cache.
+
+#### CORS, now measured
+
+Measured on the deployed page on 2026-09-18: **StonkFun's API does send
+`Access-Control-Allow-Origin`** — the rewards read went through from the browser with
+no CORS error. Should that ever
+change, the console says *"request failed, most likely CORS"*, and the fix is to proxy
+the read through our own server, which also lets us cache it:
 
 ```nginx
 location = /api/rewards {

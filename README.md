@@ -3,7 +3,8 @@
 Website design for **SEECAT** ($SEECAT), a Solana cat-mascot token whose holders are paid
 rewards in $SKR.
 
-- **Palette:** sampled pixel-by-pixel from `design/solanamobile.png`, not guessed
+- **Palette:** sampled pixel-by-pixel off a full-page screenshot of solanamobile.com,
+  not guessed
 - **Voice and content pattern:** Seeker Reviewer's Guide — a feature name, a one-line
   promise, then bold-lead claims ("Paid to your wallet. Real $SKR — not points.")
 - **Block rhythm:** raycatsolana.com, loosely — ticker, nav, hero with a CA field and
@@ -12,11 +13,9 @@ rewards in $SKR.
 Mint: `Eyvmi7QVpSXWbB7WLqf5ksfbRugaiFudubeLtpEDsnkh`. Every buy button points at
 `https://app.jtx.com/?mint=<that>`, so the swap opens with the pair already chosen.
 
-There are two things here:
-
-- **`index.html` + `assets/`** — the actual site, built from the design system below.
-- **`design/`** — the artboards it came from, in the `.dc.html` format, laid out by
-  `design/canvas.json`.
+The site is `index.html` + `assets/`, with `scripts/refresh-stats.py` running on the
+server. The design system it was built from is written down below rather than kept as a
+separate set of files.
 
 ## Deploying to seecatsol.com
 
@@ -27,9 +26,9 @@ things into the web root:
 rsync -av --delete index.html assets/ user@seecatsol.com:/var/www/seecatsol.com/
 ```
 
-`design/`, `README.md` and the repo's other files are not part of the site and do not need
-to be uploaded — except `scripts/refresh-stats.py`, which runs on the server from cron
-and writes `data/stats.json`. Put it somewhere `rsync --delete` does not reach, such as
+`README.md` and the repo's other files are not part of the site and do not need to be
+uploaded — except `scripts/refresh-stats.py`, which runs on the server from cron and
+writes `data/stats.json`. Put it somewhere `rsync --delete` does not reach, such as
 `/var/www/seecatsol.com/bin/`, and see **Setting up the snapshot** below.
 
 **Serve it over HTTPS.** Not just for the padlock: the COPY button on the contract field
@@ -212,14 +211,14 @@ width, and no console errors.
 
 ### Responsive behaviour
 
-The artboards are fixed at 1440 and 390; the site is fluid between them.
+The layout was drawn at two fixed widths, 1440 and 390; the site is fluid between them.
 
 - Type scales with `clamp()` — the wordmark runs 62 -> 130px.
 - The hero goes two-column at **1080px**, not at the nav breakpoint: below that there is not
   enough width for the 700px copy column beside the figure without the coin crowding the
   wordmark.
 - The mascot and coin scale as one unit. The figure carries `--fig-w`, and the coin is
-  `137.25%` of it (700 / 510 from the artboard), so the cat's feet always land just inside
+  `137.25%` of it (700 / 510, from the 1440 drawing), so the cat's feet always land inside
   the coin's lower face — 56px at desktop, 36px at phone width.
 - Stacked layouts reserve `0.267 x --fig-w` above the figure, because the coin overhangs its
   own box by 26.9% and would otherwise ride up over the status dots.
@@ -234,21 +233,6 @@ The artboards are fixed at 1440 and 390; the site is fluid between them.
   keeps all 44 characters readable down to a 320px viewport. Ellipsizing the one string a
   buyer is told to check twice was the wrong trade.
 
-## Artboards
-
-| File | Frame | Contents |
-| --- | --- | --- |
-| `Main.dc.html` | 1440 × 2465 | Whole desktop page |
-| `Mobile.dc.html` | 390 × 3680 | Same page stacked for phone |
-| `Foundations.dc.html` | 1180 × 720 | Palette, type scale, controls |
-
-The site's `assets/css/styles.css` carries the same tokens as CSS custom properties, so the
-artboards and the build cannot drift apart silently.
-
-Source files: `SCAT.png` (mascot, 1024², transparent), `Token_Seeker_3D.png` (the $SKR coin
-in use, 1024², transparent), `Token_Seeker.png` (the earlier flat coin, 320², superseded)
-and `solanamobile.png` (full-page reference screenshot, 1905 × 9535).
-
 ## Page blocks
 
 1. **Nav** — hex mark + letterspaced `SEECAT` wordmark, section links, `Community`
@@ -262,10 +246,6 @@ and `solanamobile.png` (full-page reference screenshot, 1905 × 9535).
 5. **Stat band** — rewards paid, holders, supply, reward token
 6. **Footer** — large nav words, the mark with the `@SeeCat_sol` handles for X and
    Telegram, then a rule and the risk and non-affiliation disclaimer
-
-The artboards in `design/` still show the earlier arrangement: a marquee ticker above the
-nav, a `Chart` pill beside `Buy`, a third card ("Your keys stay yours") and numbered `01`
-badges on the cards. All four were dropped from the build afterwards.
 
 ## Color tokens
 

@@ -62,7 +62,7 @@ python3 -m http.server 8000     # then http://localhost:8000
 | Images | `width`/`height` set to reserve space; the coin is `aria-hidden`, the mascot carries the alt text |
 | Buy buttons | All four (nav, hero, how-it-works, footer) open `app.jtx.com/?mint=<CA>` in a new tab |
 | Socials | X and Telegram, both `@SeeCat_sol` — in the hero CTA row and the footer lockup, and both in the JSON-LD `sameAs` |
-| Chart | A ghost pill beside `Buy` in the nav, opening the token's StonkFun page in a new tab |
+| Chart | A ghost pill beside `Buy` in the nav and a word in the footer nav, both opening the token's StonkFun page in a new tab |
 | Stat band | `Rewards paid` from StonkFun's API in the browser; `Holders` and `Total supply` from a cron-written `data/stats.json` |
 
 ### Live stats

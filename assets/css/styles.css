@@ -272,6 +272,13 @@ a:hover { color: var(--s5); }
 .nav .btn--solid { height: 40px; padding: 0 20px; font-size: 14px; }
 .nav .btn--ghost { height: 40px; padding: 0 20px; font-size: 14px; }
 
+/* 40px is fine for a pointer in the bar, but once the panel opens these are
+   thumb targets and the links around them are 52px. Has to sit after the two
+   rules above: same specificity, so source order decides. */
+@media (max-width: 899px) {
+  .nav__links .btn { height: 44px; }
+}
+
 .dots {
   display: flex;
   flex-wrap: wrap;

@@ -237,14 +237,16 @@ The layout was drawn at two fixed widths, 1440 and 390; the site is fluid betwee
 ## Page blocks
 
 1. **Nav** — hex mark + letterspaced `SEECAT` wordmark, section links, `Community`
-   pointing at X, and the white `Buy $SEECAT` pill
+   pointing at X, the `Chart` pill and the white `Buy $SEECAT` pill
 2. **Hero** — meta row, `$SEECAT` display wordmark, "The cat that lives in your Seeker.",
    mascot paragraph, CA field with COPY, three CTAs (buy, X, Telegram), three status pills;
    mascot at right, standing on the $SKR coin and centred in two sunset blooms
-3. **How it works** — 01 Buy / 02 Hold / 03 Collect, on accent-to-grey rules
-4. **What holding gets you** — two cards in the Reviewer's Guide pattern: rewards in $SKR,
+3. **Stat band** — rewards paid, holders, supply, reward token. Directly under the hero:
+   the numbers are what a visitor came for, and they read as the hero's own footing
+   rather than as a section of their own
+4. **How it works** — 01 Buy / 02 Hold / 03 Collect, on accent-to-grey rules
+5. **What holding gets you** — two cards in the Reviewer's Guide pattern: rewards in $SKR,
    built on Solana
-5. **Stat band** — rewards paid, holders, supply, reward token
 6. **Footer** — large nav words, the mark with the `@SeeCat_sol` handles for X and
    Telegram, then a rule and the risk and non-affiliation disclaimer
 

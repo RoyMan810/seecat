@@ -202,15 +202,20 @@ a:hover { color: var(--s5); }
 .nav__link:hover { color: var(--text); }
 
 .language-switcher select {
-  height: 32px;
-  padding: 0 24px 0 10px;
+  appearance: none;
+  height: 40px;
+  padding: 0 34px 0 16px;
   border: 1px solid var(--border);
   border-radius: 999px;
-  background: var(--pill);
+  background: var(--pill) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%233A3A40' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E") no-repeat right 13px center;
   color: var(--text);
-  font: 500 13px var(--sans);
+  font: 500 14px var(--sans);
+  line-height: 1;
   cursor: pointer;
+  transition: transform 0.12s ease, border-color 0.12s ease, background-color 0.12s ease;
 }
+.language-switcher select:hover { border-color: var(--label); }
+.language-switcher select:active { transform: translateY(1px); }
 
 .nav__toggle {
   display: none;

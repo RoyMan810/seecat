@@ -21,10 +21,10 @@
       "skip": "跳至主要内容", "brand.home": "SEECAT，首页", "brand.top": "SEECAT，返回顶部", "nav.aria": "主导航", "nav.how": "运作方式", "nav.what": "持有所得", "nav.community": "社区", "nav.chart": "图表", "nav.buy": "购买 $SEECAT", "language.label": "语言", "menu.open": "打开菜单", "menu.close": "关闭菜单",
       "hero.selfCustody": "自托管", "hero.lede": "<b>Solana Mobile 吉祥物猫。</b>戴着帽子出现，带走了一台 Seeker，并开始发放奖励。将 $SEECAT 放在你已有的钱包中，即可领取 $SKR——无需质押页面、无需锁仓、无需做功课。", "hero.subhead.line1": "住在你的", "hero.subhead.line2": "<span class=\"gradient-text\">Seeker</span> 里的猫。", "copy": "复制", "copied": "已复制", "select": "请选择", "hero.buy": "购买 $SEECAT", "dot.rewards": "$SKR 奖励", "dot.holders": "直接发给持有人", "dot.stake": "无需质押",
       "stats.rewardsPaid": "已发放奖励", "stats.holders": "持有人", "stats.supply": "总供应量", "stats.rewardToken": "奖励代币",
-      "how.eyebrow": "运作方式", "how.title": "猫咪三步走", "how.cta": "开始持有", "step.buy.title": "购买 $SEECAT", "step.buy.body": "将合约地址粘贴到任意 Solana DEX 或你常用的钱包中，仔细核对后完成兑换。", "step.hold.title": "持有这只猫", "step.hold.body": "让它留在落脚处。持有就是全部策略，无需签署任何操作。", "step.collect.title": "领取 $SKR", "step.collect.body": "奖励会自行到账。查看钱包也好、不看也行——它们都会到账。",
-      "what.eyebrow": "SEECAT 代币", "what.title": "持有即可获得。", "what.aside": "这里没有需要理解的协议。只需一只猫、你已有的钱包，以及自动到账的奖励。",
+      "how.eyebrow": "运作方式", "how.title": "猫咪三步走", "how.cta": "开始持有", "step.buy.title": "购买 $SEECAT", "step.buy.body": "将合约地址粘贴到任意 Solana DEX 或你常用的钱包中，仔细核对后完成兑换。", "step.hold.title": "持有这只猫", "step.hold.body": "让它待在原处。持有就是全部策略，无需签署任何内容。", "step.collect.title": "领取 $SKR", "step.collect.body": "奖励会自行到账。查看钱包也好、不看也行——它们都会到账。",
+      "what.eyebrow": "SEECAT 代币", "what.title": "持有能获得什么。", "what.aside": "这里没有需要理解的协议。只需一只猫、你已有的钱包，以及自动到账的奖励。",
       "card.rewards.title": "$SKR 奖励", "card.rewards.body": "每次转移 $SEECAT（无论在哪个交易场所）收取的 3% 转账税，都会按持仓比例以 SKR 形式发放给持有人。约 2.5% 的费用会用于覆盖分发和运营支持的网络成本。税款累积至适合分发时，将发给当时持有至少 20 美元等值 $SEECAT 的钱包。", "card.solana.title": "构建于 Solana", "card.solana.fast": "<b>亚秒级结算。</b>手续费低到几乎可以忽略。", "card.solana.mobile": "<b>移动优先的社区。</b>为已经随身携带手机的人而生。",
-      "footer.aria": "页脚导航", "footer.buy": "购买", "footer.chart": "图表", "footer.community": "社区", "footer.legal": "$SEECAT 是一枚社区迷因币。它没有内在价值、没有承诺中的路线图，也不代表任何财务回报预期。它与 Solana Labs、Solana Mobile 或 Seeker 没有隶属、背书或关联关系。加密资产有风险——仅投入你可以承受损失的金额，并始终自行研究。"
+      "footer.aria": "页脚导航", "footer.buy": "购买", "footer.chart": "图表", "footer.community": "社区", "footer.legal": "$SEECAT 是一枚社区迷因币。它没有内在价值、没有任何承诺的路线图，也不应被视为可带来财务回报。它与 Solana Labs、Solana Mobile 或 Seeker 没有隶属、背书或关联关系。加密资产有风险——仅投入你可以承受损失的金额，并始终自行研究。"
     }
   };
 

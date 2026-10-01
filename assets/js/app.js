@@ -12,7 +12,8 @@
 
     const setOpen = (open) => {
       toggle.setAttribute("aria-expanded", String(open));
-      toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+      const labelKey = open ? toggle.dataset.i18nCloseAriaLabel : toggle.dataset.i18nOpenAriaLabel;
+      toggle.setAttribute("aria-label", window.seecatI18n ? window.seecatI18n.get(labelKey) : (open ? "Close menu" : "Open menu"));
       links.hidden = !open;
     };
 
@@ -69,7 +70,9 @@
         ok = false;
       }
 
-      btn.textContent = ok ? "COPIED" : "SELECT IT";
+      btn.textContent = ok
+        ? (window.seecatI18n ? window.seecatI18n.get("copied") : "COPIED")
+        : (window.seecatI18n ? window.seecatI18n.get("select") : "SELECT IT");
       btn.dataset.state = ok ? "done" : "";
       if (!ok) { field.removeAttribute("readonly"); field.select(); }
 

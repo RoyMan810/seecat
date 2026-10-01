@@ -57,6 +57,7 @@ python3 -m http.server 8000     # then http://localhost:8000
 | | |
 | --- | --- |
 | Mobile nav | `aria-expanded` toggle, closes on link pick and on Escape, restored on resize |
+| Language picker | English and Simplified Chinese UI, remembers the visitor's selection and defaults Chinese-language browsers to Chinese |
 | Copy button | Clipboard API with a selection fallback for non-secure origins, `COPIED` for 1.8s |
 | Focus | `:focus-visible` rings on every link, button and input |
 | Images | `width`/`height` set to reserve space; the coin is `aria-hidden`, the mascot carries the alt text |

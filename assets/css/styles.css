@@ -112,6 +112,18 @@ a:hover { color: var(--s5); }
 }
 .skip:focus { left: 8px; top: 8px; color: var(--page); }
 
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 /* Shared label style: tiny uppercase sans, as the reference uses */
 .label {
   font-size: clamp(10px, 0.2vw + 9.5px, 11px);
@@ -189,6 +201,51 @@ a:hover { color: var(--s5); }
 }
 .nav__link:hover { color: var(--text); }
 
+.language-switcher {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  isolation: isolate;
+}
+.language-switcher::before {
+  content: "文";
+  position: absolute;
+  left: 10px;
+  z-index: 1;
+  color: var(--s5);
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1;
+  pointer-events: none;
+}
+.language-switcher::after {
+  content: "";
+  position: absolute;
+  right: 11px;
+  width: 6px;
+  height: 6px;
+  border-right: 1.5px solid var(--soft);
+  border-bottom: 1.5px solid var(--soft);
+  transform: translateY(-2px) rotate(45deg);
+  pointer-events: none;
+}
+.language-switcher select {
+  appearance: none;
+  height: 40px;
+  min-width: 104px;
+  padding: 0 29px 0 31px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: linear-gradient(120deg, color-mix(in srgb, var(--pill) 92%, var(--s1)), var(--pill));
+  color: var(--text);
+  font: 600 13px var(--sans);
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  transition: border-color 0.12s ease, background-color 0.12s ease;
+}
+.language-switcher select:hover { border-color: var(--label); }
+.language-switcher select:focus-visible { outline-offset: 2px; }
+
 .nav__toggle {
   display: none;
   width: 44px;
@@ -218,6 +275,10 @@ a:hover { color: var(--s5); }
   }
   .nav__links[hidden] { display: none; }
   .nav__link { padding: 12px 0; font-size: 17px; }
+  .language-switcher { padding: 8px 0; }
+  .language-switcher::before { left: 16px; font-size: 16px; }
+  .language-switcher::after { right: 17px; width: 8px; height: 8px; }
+  .language-switcher select { width: 100%; height: 48px; padding-left: 42px; font-size: 16px; }
   .nav__links .btn { justify-content: center; margin-top: 6px; }
 }
 

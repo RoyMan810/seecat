@@ -746,11 +746,14 @@ a:hover { color: var(--s5); }
   gap: 18px;
   align-items: flex-start;
 }
+/* A column, and left-aligned inside it even where the lockup is pushed right:
+   aligning the handles' right edges instead makes the icons stagger, and a
+   straight column of glyphs reads better than a straight trailing edge. */
 .footer__handles {
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 10px 22px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
 }
 .footer__handle {
   display: inline-flex;
@@ -782,5 +785,4 @@ a:hover { color: var(--s5); }
 
 @media (min-width: 900px) {
   .footer__lockup { align-items: flex-end; }
-  .footer__handles { justify-content: flex-end; }
 }

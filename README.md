@@ -62,7 +62,7 @@ python3 -m http.server 8000     # then http://localhost:8000
 | Focus | `:focus-visible` rings on every link, button and input |
 | Images | `width`/`height` set to reserve space; the coin is `aria-hidden`, the mascot carries the alt text |
 | Buy buttons | All four (nav, hero, how-it-works, footer) open `app.jtx.com/?mint=<CA>` in a new tab |
-| Socials | X (`@SeeCat_sol` and `@Seecat_helper`) and Telegram (`@SeeCat_sol`) — in the hero CTA row and the footer lockup, and in the JSON-LD `sameAs` |
+| Socials | X (`@SeeCat_sol`, `@Seecat_helper`, `@SeeCat_Update`) and Telegram (`@SeeCat_sol`) — in the hero CTA row and the footer lockup, and in the JSON-LD `sameAs` |
 | Chart | A ghost pill beside `Buy` in the nav and a word in the footer nav, both opening the token's StonkFun page in a new tab |
 | Stat band | `Rewards paid` from StonkFun's API in the browser; `Holders` and `Total supply` from a cron-written `data/stats.json` |
 
@@ -240,7 +240,7 @@ The layout was drawn at two fixed widths, 1440 and 390; the site is fluid betwee
 1. **Nav** — hex mark + letterspaced `SEECAT` wordmark, section links, `Community`
    pointing at X, the `Chart` pill and the white `Buy $SEECAT` pill
 2. **Hero** — meta row, `$SEECAT` display wordmark, "The cat that lives in your Seeker.",
-   mascot paragraph, CA field with COPY, three CTAs (buy, X, Telegram), three status pills;
+   mascot paragraph, CA field with COPY, five CTAs (buy, three X accounts, Telegram), three status pills;
    mascot at right, standing on the $SKR coin and centred in two sunset blooms
 3. **Stat band** — rewards paid, holders, supply, reward token. Directly under the hero:
    the numbers are what a visitor came for, and they read as the hero's own footing
@@ -248,8 +248,9 @@ The layout was drawn at two fixed widths, 1440 and 390; the site is fluid betwee
 4. **How it works** — 01 Buy / 02 Hold / 03 Collect, on accent-to-grey rules
 5. **What holding gets you** — two cards in the Reviewer's Guide pattern: rewards in $SKR,
    built on Solana
-6. **Footer** — large nav words, the mark with the `@SeeCat_sol` and `@Seecat_helper` X handles and the
-   `@SeeCat_sol` Telegram handle, then a rule and the risk and non-affiliation disclaimer
+6. **Footer** — large nav words, the mark with the `@SeeCat_sol`, `@Seecat_helper` and
+   `@SeeCat_Update` X handles and the `@SeeCat_sol` Telegram handle, then a rule and the risk
+   and non-affiliation disclaimer
 
 ## Color tokens
 
